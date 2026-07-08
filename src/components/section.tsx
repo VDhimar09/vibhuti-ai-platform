@@ -8,6 +8,7 @@ export function Section({
   subtitle,
   children,
   className = "",
+  as: Tag = "section",
 }: {
   id?: string;
   eyebrow?: string;
@@ -15,9 +16,10 @@ export function Section({
   subtitle?: ReactNode;
   children?: ReactNode;
   className?: string;
+  as?: "section" | "div";
 }) {
   return (
-    <section id={id} className={`relative mx-auto max-w-7xl px-6 py-24 md:py-32 ${className}`}>
+    <Tag id={id} className={`relative mx-auto max-w-7xl px-6 py-24 md:py-32 ${className}`}>
       {(eyebrow || title || subtitle) && (
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -28,7 +30,7 @@ export function Section({
         >
           {eyebrow && (
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-border bg-elevated/70 px-3.5 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-mute backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-rose to-lavender" />
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-rose to-lavender" />
               {eyebrow}
             </div>
           )}
@@ -45,7 +47,7 @@ export function Section({
         </motion.div>
       )}
       {children}
-    </section>
+    </Tag>
   );
 }
 
@@ -59,13 +61,5 @@ export function Reveal({ children, delay = 0 }: { children: ReactNode; delay?: n
     >
       {children}
     </motion.div>
-  );
-}
-
-export function Chip({ children }: { children: ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-border bg-elevated/70 px-3 py-1 text-xs font-medium text-ink/80">
-      {children}
-    </span>
   );
 }

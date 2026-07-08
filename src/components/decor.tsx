@@ -77,17 +77,7 @@ export function CurvedDivider() {
   );
 }
 
-/* ---------- Small botanical / floating icons ---------- */
-
-export function Leaf({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 40 40" className={className} aria-hidden>
-      <path d="M20 4 C10 8 6 18 8 30 C20 28 30 20 32 8 C28 8 24 6 20 4Z"
-        fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
-      <path d="M10 28 C16 22 22 16 30 10" fill="none" stroke="currentColor" strokeWidth="1" opacity="0.6" />
-    </svg>
-  );
-}
+/* ---------- Orbit ring ---------- */
 
 export function OrbitRing({ className = "" }: { className?: string }) {
   return (
