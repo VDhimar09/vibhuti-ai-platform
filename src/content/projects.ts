@@ -67,18 +67,20 @@ export const shiftPing: ProjectSummary = {
   slug: "shiftping",
   name: "ShiftPing",
   eyebrow: "Project 03",
-  chip: "✦ Warehouse Intelligence",
+  chip: "🚧 In Development",
   tone: "sage",
-  title: "ShiftPing — Intelligent warehouse job monitoring",
+  title: "ShiftPing — AI-Powered Warehouse Job Monitoring Platform",
   description:
-    "An intelligent warehouse job monitoring platform with automated notifications — so operations teams stay ahead of shift-critical events without watching dashboards.",
+    "ShiftPing is an intelligent job monitoring platform designed to help warehouse workers discover new shift opportunities faster.",
+  longDescription:
+    "The platform continuously monitors warehouse job listings, matches vacancies against user preferences and sends instant notifications when suitable shifts become available.",
   features: [
-    { icon: Truck, label: "Job Monitoring" },
-    { icon: Package, label: "Automated Alerts" },
-    { icon: Warehouse, label: "Shift Coordination" },
-    { icon: ShoppingCart, label: "Ops Visibility" },
+    { icon: Truck, label: "Automated Job Monitoring" },
+    { icon: Package, label: "Instant Notifications" },
+    { icon: Warehouse, label: "Smart Job Matching" },
+    { icon: ShoppingCart, label: "Saved Preferences" },
   ],
-  tags: ["React", "Node.js", "Realtime Notifications"],
+  tags: ["Warehouse", "Automation", "Notifications"],
   metrics: [
     { label: "Active jobs", value: "24", tone: "sage" },
     { label: "Pending alerts", value: "6", tone: "rose" },
@@ -86,8 +88,72 @@ export const shiftPing: ProjectSummary = {
     { label: "Avg response", value: "3m", tone: "ink" },
   ],
   dashboardId: "shiftping",
-  techStack: ["Python", "FastAPI", "Playwright", "PostgreSQL", "APScheduler"],
+  techStack: ["Python", "FastAPI", "PostgreSQL", "Playwright", "APScheduler", "Docker"],
 };
+
+export const shiftPingFeatures: readonly {
+  title: string;
+  desc: string;
+}[] = [
+  {
+    title: "Automated Job Monitoring",
+    desc: "Continuously checks supported warehouse job listings.",
+  },
+  {
+    title: "Smart Job Matching",
+    desc: "Matches jobs using location, shift type, contract type and preferred working hours.",
+  },
+  {
+    title: "Instant Notifications",
+    desc: "Sends alerts when new matching jobs are detected.",
+  },
+  {
+    title: "Saved Preferences",
+    desc: "Allows users to configure locations, working hours and warehouse preferences.",
+  },
+  {
+    title: "Real-time Monitoring",
+    desc: "Background monitoring with scheduled updates.",
+  },
+  {
+    title: "Future AI Recommendations",
+    desc: "Recommend suitable jobs based on previous applications and user behaviour.",
+  },
+] as const;
+
+export const shiftPingStack: readonly TechStack[] = [
+  { category: "Frontend", items: ["React", "TypeScript"] },
+  { category: "Backend", items: ["Python", "FastAPI"] },
+  { category: "Database", items: ["PostgreSQL"] },
+  { category: "Automation", items: ["Playwright", "APScheduler"] },
+  { category: "Notifications", items: ["Email", "Telegram"] },
+  { category: "Deployment", items: ["Docker", "GitHub"] },
+];
+
+export const shiftPingTech: readonly string[] = [
+  "Python",
+  "FastAPI",
+  "PostgreSQL",
+  "Playwright",
+  "APScheduler",
+  "Docker",
+  "GitHub",
+  "REST APIs",
+];
+
+export const shiftPingRoadmap: readonly RoadmapItem[] = [
+  { label: "Research completed", done: true },
+  { label: "Architecture designed", done: true },
+  { label: "MVP planning", done: true },
+  { label: "User authentication", done: false },
+  { label: "Job monitoring engine", done: false },
+  { label: "Notification service", done: false },
+  { label: "Dashboard", done: false },
+  { label: "AI recommendations", done: false },
+  { label: "Production deployment", done: false },
+];
+
+export const shiftPingGithubUrl = "https://github.com/VDhimar09";
 
 export const projects: readonly ProjectSummary[] = [
   operationalHub,
