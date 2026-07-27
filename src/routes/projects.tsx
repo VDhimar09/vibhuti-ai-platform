@@ -1,14 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
+  Bot,
   CheckCircle2,
   Circle,
   ClipboardList,
+  Code2,
+  Cpu,
+  Database,
   FileCheck2,
   FileSearch,
   Github,
   MessagesSquare,
   Quote,
+  Server,
   Sparkles,
 } from "lucide-react";
 
@@ -181,11 +186,12 @@ function Projects() {
           <div className="rounded-[32px] border border-border bg-gradient-to-br from-elevated to-blush/10 p-8 backdrop-blur md:p-10">
             <div className="flex flex-wrap items-center gap-3">
               {[
-                { icon: ClipboardList, label: "Role Planner" },
-                { icon: MessagesSquare, label: "Live Interview" },
+                { icon: Code2, label: "React" },
+                { icon: Server, label: "API" },
                 { icon: FileSearch, label: "Evidence Engine" },
-                { icon: MessagesSquare, label: "Adaptive Follow-ups" },
-                { icon: FileCheck2, label: "Reflection Check" },
+                { icon: ClipboardList, label: "Gap Analysis" },
+                { icon: MessagesSquare, label: "Follow-up Generator" },
+                { icon: FileCheck2, label: "Reflection Report" },
               ].map((step, i, arr) => {
                 const Icon = step.icon;
                 return (
@@ -340,6 +346,35 @@ function Projects() {
       </Section>
 
       <Section
+        eyebrow="Overview"
+        title={<>Visibility, <span className="italic gradient-text">then action</span>.</>}
+        className="!pt-0"
+      >
+        <div className="grid gap-5 md:grid-cols-2">
+          <Reveal>
+            <div className="h-full rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
+              <div className="font-display text-xs uppercase tracking-[0.2em] text-rose">The challenge</div>
+              <p className="mt-4 text-base leading-relaxed text-mute">
+                Clinical supply chains span inventory, warehouse capacity and procurement decisions
+                that are often tracked separately, making it hard to see the full picture or act
+                before a stock-out or capacity problem becomes urgent.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="h-full rounded-3xl border border-lavender/30 bg-lavender/5 p-7 backdrop-blur">
+              <div className="font-display text-xs uppercase tracking-[0.2em] text-violet">The solution</div>
+              <p className="mt-4 text-base leading-relaxed text-mute">
+                PharmaChain brings inventory, warehouse capacity and procurement into a single
+                dashboard, with an AI procurement copilot that reasons over that data to support
+                faster, explainable decisions.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      <Section
         eyebrow="Capabilities"
         title={<>Key <span className="italic gradient-text">features</span>.</>}
         className="!pt-0"
@@ -356,6 +391,39 @@ function Projects() {
             </Reveal>
           ))}
         </div>
+      </Section>
+
+      <Section
+        eyebrow="Architecture"
+        title={<>How it <span className="italic gradient-text">fits together</span>.</>}
+        className="!pt-0"
+      >
+        <Reveal>
+          <div className="rounded-[32px] border border-border bg-gradient-to-br from-elevated to-blush/10 p-8 backdrop-blur md:p-10">
+            <div className="flex flex-wrap items-center gap-3">
+              {[
+                { icon: Code2, label: "React" },
+                { icon: Server, label: "FastAPI" },
+                { icon: Cpu, label: "Business Logic" },
+                { icon: Database, label: "PostgreSQL" },
+                { icon: Bot, label: "AI Procurement Agent" },
+              ].map((step, i, arr) => {
+                const Icon = step.icon;
+                return (
+                  <div key={step.label} className="flex items-center gap-3">
+                    <div className="flex items-center gap-2.5 rounded-2xl border border-border bg-elevated px-4 py-3 shadow-soft">
+                      <Icon className="h-4 w-4 text-violet" strokeWidth={1.7} aria-hidden />
+                      <span className="text-sm font-medium text-ink">{step.label}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <ArrowRight className="h-4 w-4 shrink-0 text-mute/50" aria-hidden />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </Reveal>
       </Section>
 
       <Section

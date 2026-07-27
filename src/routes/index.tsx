@@ -79,7 +79,7 @@ const floatingNodes: readonly FloatingNode[] = [
 
 const homeStats: readonly Stat[] = [
   { k: "10+", v: "Healthcare & Operations", sub: "years experience", tone: "rose" },
-  { k: "Enterprise", v: "AI Platforms", sub: "production-grade", tone: "lavender" },
+  { k: "Enterprise-ready", v: "AI Systems", sub: "production-minded engineering", tone: "lavender" },
   { k: "2+", v: "Flagship AI Projects", sub: "shipped end-to-end", tone: "sage" },
   { k: "Full Stack", v: "Python · React · FastAPI", sub: "human-centred AI", tone: "rose" },
 ];
@@ -96,14 +96,23 @@ const careerJourney: readonly JourneyStop[] = [
   { icon: Stethoscope, label: "Healthcare Operations" },
   { icon: Code2, label: "Software Engineering" },
   { icon: Brain, label: "AI Product Engineering" },
-  { icon: Building2, label: "Enterprise AI Applications" },
+  { icon: Building2, label: "Enterprise-ready AI Systems" },
+];
+
+const engineeringPractices: readonly string[] = [
+  "Reusable Components",
+  "Type-safe Architecture",
+  "REST API Design",
+  "AI Orchestration",
+  "Explainable AI Workflows",
+  "Responsive UI",
 ];
 
 const engineeringApproach = [
   {
     icon: Code2,
     title: "Modern Frontend",
-    items: ["React", "TypeScript", "Tailwind", "Performance"],
+    items: ["React", "TypeScript", "Tailwind", "Responsive UI"],
     tone: "rose" as const,
   },
   {
@@ -115,7 +124,7 @@ const engineeringApproach = [
   {
     icon: Brain,
     title: "AI Engineering",
-    items: ["OpenAI APIs", "Prompt Engineering", "Evidence Extraction", "Reasoning"],
+    items: ["OpenAI APIs", "Structured Outputs", "Prompt Engineering", "Evidence Extraction"],
     tone: "sage" as const,
   },
   {
@@ -185,15 +194,15 @@ function HeroSection() {
 
           <p className="mx-auto mt-6 max-w-3xl font-display text-2xl leading-tight text-ink md:text-4xl">
             AI Software Engineer building{" "}
-            <span className="italic gradient-text">intelligent products</span> that keep humans in
+            <span className="italic gradient-text">intelligent systems</span> that keep humans in
             control.
           </p>
 
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-mute md:text-lg">
-            I'm an AI Software Engineer with a background in healthcare operations, building
-            enterprise AI applications using React, TypeScript, Python and FastAPI. My work focuses
-            on AI systems that augment human decision-making through explainable workflows rather
-            than replacing people.
+            I'm an AI Software Engineer with a background in healthcare operations, building modern
+            AI applications using React, TypeScript, Python and FastAPI. I enjoy creating AI systems
+            that support better decision-making through explainable workflows rather than replacing
+            people.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
@@ -427,6 +436,15 @@ function EngineeringApproachSection() {
           );
         })}
       </div>
+      <Reveal delay={0.3}>
+        <div className="mt-8 flex flex-wrap gap-2.5">
+          {engineeringPractices.map((p) => (
+            <LuxeChip key={p} tone="lavender">
+              {p}
+            </LuxeChip>
+          ))}
+        </div>
+      </Reveal>
     </Section>
   );
 }

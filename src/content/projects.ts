@@ -7,6 +7,7 @@ import {
   Eye,
   FileCheck2,
   FileSearch,
+  KeyRound,
   ListChecks,
   MessagesSquare,
   Package,
@@ -30,7 +31,7 @@ export const operationalHub: ProjectSummary = {
   tone: "rose",
   title: "Operational AI Hub",
   description:
-    "An AI-powered enterprise operational intelligence platform that helps organisations monitor operations, identify risks, coordinate AI-assisted decisions and automate complex operational workflows.",
+    "An AI-powered, enterprise-ready operational intelligence platform that helps organisations monitor operations, identify risks, coordinate AI-assisted decisions and automate complex operational workflows.",
   longDescription:
     "Instead of simply reporting operational data, the platform provides AI-driven recommendations, explainable insights and intelligent workflow orchestration.",
   features: [],
@@ -58,6 +59,8 @@ export const pharmaChain: ProjectSummary = {
     { icon: Package, label: "Inventory Intelligence" },
     { icon: Warehouse, label: "Warehouse Capacity" },
     { icon: MessagesSquare, label: "Executive Copilot" },
+    { icon: KeyRound, label: "JWT Authentication" },
+    { icon: ShieldCheck, label: "Role-Based Access Control" },
   ],
   tags: ["React", "FastAPI", "REST APIs"],
   metrics: [

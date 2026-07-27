@@ -12,7 +12,7 @@ import type { Stat, TimelineEntry } from "@/types";
 
 export const aboutStats: readonly Stat[] = [
   { k: "10+", v: "Healthcare & Operations", sub: "years experience", tone: "rose" },
-  { k: "Enterprise", v: "AI Platforms", sub: "production-grade", tone: "lavender" },
+  { k: "Enterprise-ready", v: "AI Systems", sub: "production-minded engineering", tone: "lavender" },
   { k: "2+", v: "Flagship AI Projects", sub: "shipped end-to-end", tone: "sage" },
   { k: "Full Stack", v: "Python · React · FastAPI", sub: "human-centred AI", tone: "rose" },
 ];
@@ -21,13 +21,13 @@ export const aboutTimeline: readonly TimelineEntry[] = [
   { id: "junior-dev", icon: GraduationCap, title: "Junior Software Developer", desc: "Started with the fundamentals — clean code, testing, disciplined delivery." },
   { id: "nhs-ops", icon: Stethoscope, title: "~10 Years NHS Operations", desc: "Real operational complexity: coordination, resilience, decisions under pressure." },
   { id: "full-stack", icon: Briefcase, title: "Full-Stack Software Engineering", desc: "Modern systems with Python, React and cloud-native tooling." },
-  { id: "ai-startups", icon: Rocket, title: "AI Startups", desc: "Shipping AI-first products end-to-end for enterprise customers." },
-  { id: "enterprise-ai", icon: Building2, title: "Enterprise AI Engineering", desc: "Architecting AI platforms for regulated, mission-critical environments." },
-  { id: "ai-platforms", icon: Brain, title: "Building AI Platforms", desc: "Operational intelligence, workflow automation, explainable decision support." },
+  { id: "ai-startups", icon: Rocket, title: "AI Startups", desc: "Shipping AI-first products end-to-end." },
+  { id: "enterprise-ai", icon: Building2, title: "Enterprise-ready AI Engineering", desc: "Architecting AI systems with production-minded engineering practices." },
+  { id: "ai-platforms", icon: Brain, title: "Building AI Systems", desc: "Operational intelligence, workflow automation, explainable decision support." },
 ];
 
 export const aboutToolkit: readonly string[] = [
-  "Enterprise AI",
+  "Enterprise-ready AI",
   "Full Stack",
   "Python",
   "React",
@@ -56,29 +56,29 @@ export const techStack: readonly TechCategory[] = [
   {
     category: "Frontend",
     tone: "lavender",
-    items: ["React", "Tailwind", "TanStack"],
+    items: ["React", "Tailwind", "TanStack Router"],
   },
   {
     category: "Backend",
     tone: "sage",
-    items: ["FastAPI", "Node.js", "PostgreSQL", "SQLAlchemy"],
+    items: ["FastAPI", "Node.js", "SQLAlchemy", "PostgreSQL"],
   },
   {
     category: "AI",
     tone: "rose",
-    items: ["OpenAI", "Azure OpenAI", "Prompt Engineering", "Responsible AI"],
+    items: ["OpenAI", "Azure OpenAI", "Prompt Engineering", "Structured Outputs"],
   },
   {
-    category: "Tools",
+    category: "Deployment",
     tone: "lavender",
-    items: ["GitHub", "GitHub Actions", "Docker", "Vercel", "Render"],
+    items: ["GitHub Actions", "Docker", "Vercel", "Render"],
   },
 ];
 
 /* ---------- About intro + social proof ---------- */
 
 export const aboutIntro =
-  "With 10+ years in healthcare operations, I made the transition into software engineering and now build AI products. I care about responsible AI, and I genuinely love solving real operational problems. I enjoy building products where technology, design and human decision-making come together.";
+  "With 10+ years in healthcare operations, I made the transition into software engineering and now focus on AI product engineering. I care about responsible AI and human-centred design. I enjoy building software that combines engineering, product thinking and AI to solve real operational problems.";
 
 export const workedAcross: readonly string[] = ["NHS", "CogniKord AI"];
 

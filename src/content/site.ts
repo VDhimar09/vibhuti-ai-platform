@@ -12,7 +12,7 @@ export const brand: Brand = {
     "Thanks for visiting. I'm always interested in discussing AI engineering, product development and opportunities to build technology that helps people make better decisions.",
   location: "Leicester, United Kingdom",
   quote: "AI that augments, never replaces.",
-  availableFor: "Available for AI Software Engineering opportunities",
+  availableFor: "Open to AI Software Engineer & Forward Deployed Engineer opportunities",
 };
 
 export const navLinks: readonly NavLink[] = [
@@ -25,8 +25,8 @@ export const navLinks: readonly NavLink[] = [
 export const siteSeo = {
   title: "Vibhuti Dhimar — AI Software Engineer & Platform Builder",
   description:
-    "I design enterprise AI platforms that transform operational complexity into intelligent decisions — helping organisations become more resilient, efficient and future-ready.",
+    "I build enterprise-ready AI systems that transform operational complexity into intelligent decisions — helping organisations become more resilient, efficient and future-ready.",
   ogDescription:
-    "Enterprise AI platforms for operational intelligence, workflow automation and human-centred decision support.",
+    "Enterprise-ready AI systems for operational intelligence, workflow automation and human-centred decision support.",
   themeColor: "#FFFDFC",
 } as const;
