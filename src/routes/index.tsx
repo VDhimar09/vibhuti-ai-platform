@@ -19,7 +19,7 @@ import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip, OrbitRing, Sparkle, CurvedDivider } from "@/components/decor";
 import { MockDashboard } from "@/components/mock-dashboard";
 import { brand, siteSeo } from "@/content/site";
-import { operationalHub } from "@/content/projects";
+import { potential } from "@/content/projects";
 import type { Stat, Tone } from "@/types";
 
 export const Route = createFileRoute("/")({
@@ -269,24 +269,24 @@ function StatsSection() {
 function FeaturedTeaser() {
   return (
     <Section
-      eyebrow={operationalHub.eyebrow}
-      title={<>Operational <span className="italic gradient-text">AI Hub</span>.</>}
-      subtitle="AI-powered enterprise operational intelligence — monitor operations, identify risks, coordinate AI-assisted decisions and automate complex operational workflows."
+      eyebrow={potential.eyebrow}
+      title={<>Introducing <span className="italic gradient-text">Potential</span>.</>}
+      subtitle="Helping organisations make fairer and more confident hiring decisions — through structured evidence collection, adaptive follow-up questions and explainable reflection reports."
     >
       <Reveal>
-        <div className="group relative overflow-hidden rounded-[36px] border border-border bg-gradient-to-br from-rose/5 via-elevated to-lavender/5 p-2 shadow-luxe">
+        <div className="group relative overflow-hidden rounded-[36px] border border-sage/30 bg-gradient-to-br from-sage/6 via-elevated to-lavender/5 p-2 shadow-luxe">
           <div className="rounded-[30px] bg-elevated p-8 md:p-14">
-            <div className="grid gap-10 md:grid-cols-2 md:gap-14">
+            <div className="grid gap-10 md:grid-cols-2 md:gap-14 md:items-center">
               <div>
                 <div className="flex flex-wrap gap-2">
-                  {operationalHub.tags.map((c, i) => (
-                    <LuxeChip key={c} tone={i % 2 === 0 ? "rose" : "lavender"}>
+                  {potential.tags.map((c, i) => (
+                    <LuxeChip key={c} tone={i % 2 === 0 ? "sage" : "lavender"}>
                       {c}
                     </LuxeChip>
                   ))}
                 </div>
                 <p className="mt-7 text-base leading-relaxed text-mute md:text-lg">
-                  {operationalHub.longDescription}
+                  {potential.longDescription}
                 </p>
                 <Link
                   to="/projects"
@@ -295,8 +295,14 @@ function FeaturedTeaser() {
                   See full case study <ArrowRight className="h-4 w-4" aria-hidden />
                 </Link>
               </div>
-              <div className="relative">
-                <MockDashboard />
+              <div className="relative overflow-hidden rounded-3xl border border-border shadow-soft">
+                <img
+                  src="/images/potential/home.jpg"
+                  alt="Potential — workspace home"
+                  loading="lazy"
+                  decoding="async"
+                  className="block h-auto w-full"
+                />
               </div>
             </div>
           </div>

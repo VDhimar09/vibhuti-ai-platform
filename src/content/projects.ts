@@ -3,11 +3,19 @@
 // by a UI-side registry (see components/mock-dashboard etc.).
 
 import {
+  ClipboardList,
+  Eye,
+  FileCheck2,
+  FileSearch,
+  ListChecks,
+  MessagesSquare,
   Package,
+  ShieldCheck,
   ShoppingCart,
-  Truck,
+  UserCheck,
   Warehouse,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import type {
   ProjectSummary,
   RoadmapItem,
@@ -17,7 +25,7 @@ import type {
 export const operationalHub: ProjectSummary = {
   slug: "operational-ai-hub",
   name: "Operational AI Hub",
-  eyebrow: "Featured platform",
+  eyebrow: "Project 03",
   chip: "✦ Flagship Project",
   tone: "rose",
   title: "Operational AI Hub",
@@ -34,7 +42,6 @@ export const operationalHub: ProjectSummary = {
   ],
   dashboardId: "operational-hub",
   techStack: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "OpenAI"],
-  featured: true,
 };
 
 export const pharmaChain: ProjectSummary = {
@@ -45,12 +52,12 @@ export const pharmaChain: ProjectSummary = {
   tone: "lavender",
   title: "PharmaChain — AI Clinical Supply Chain Copilot",
   description:
-    "An enterprise copilot for clinical supply chains — combining AI procurement, intelligent warehousing, and end-to-end shipment visibility with a modern REST API foundation.",
+    "An enterprise copilot for clinical supply chains, focused on AI procurement, inventory intelligence, warehouse capacity planning and an executive copilot for supply chain decisions.",
   features: [
     { icon: ShoppingCart, label: "AI Procurement" },
-    { icon: Package, label: "Inventory" },
-    { icon: Warehouse, label: "Warehouse Intelligence" },
-    { icon: Truck, label: "Shipment Management" },
+    { icon: Package, label: "Inventory Intelligence" },
+    { icon: Warehouse, label: "Warehouse Capacity" },
+    { icon: MessagesSquare, label: "Executive Copilot" },
   ],
   tags: ["React", "FastAPI", "REST APIs"],
   metrics: [
@@ -63,102 +70,115 @@ export const pharmaChain: ProjectSummary = {
   techStack: ["Python", "FastAPI", "React", "TypeScript", "SQLAlchemy", "PostgreSQL", "OpenAI"],
 };
 
-export const shiftPing: ProjectSummary = {
-  slug: "shiftping",
-  name: "ShiftPing",
-  eyebrow: "Project 03",
-  chip: "🚧 In Development",
+export const potential: ProjectSummary = {
+  slug: "potential",
+  name: "Potential",
+  eyebrow: "Flagship project",
+  chip: "⭐ Flagship Project",
   tone: "sage",
-  title: "ShiftPing — AI-Powered Warehouse Job Monitoring Platform",
+  title: "Potential — AI-Assisted Interviewing Platform",
   description:
-    "ShiftPing is an intelligent job monitoring platform designed to help warehouse workers discover new shift opportunities faster.",
+    "Potential is an AI-assisted interviewing platform that helps interviewers collect trustworthy evidence about candidate capability.",
   longDescription:
-    "The platform continuously monitors warehouse job listings, matches vacancies against user preferences and sends instant notifications when suitable shifts become available.",
-  features: [
-    { icon: Truck, label: "Automated Job Monitoring" },
-    { icon: Package, label: "Instant Notifications" },
-    { icon: Warehouse, label: "Smart Job Matching" },
-    { icon: ShoppingCart, label: "Saved Preferences" },
-  ],
-  tags: ["Warehouse", "Automation", "Notifications"],
-  metrics: [
-    { label: "Active jobs", value: "24", tone: "sage" },
-    { label: "Pending alerts", value: "6", tone: "rose" },
-    { label: "Shift coverage", value: "92%", tone: "lavender" },
-    { label: "Avg response", value: "3m", tone: "ink" },
-  ],
-  dashboardId: "shiftping",
-  techStack: ["Python", "FastAPI", "PostgreSQL", "Playwright", "APScheduler", "Docker"],
+    "Instead of making hiring decisions, Potential helps interviewers ask better questions, identify missing evidence and build explainable interview summaries — through structured evidence collection, adaptive follow-up questions and reflection reports — while keeping humans in control of every hiring decision.",
+  features: [],
+  tags: ["Evidence-based", "Human-in-the-loop", "Explainable"],
+  dashboardId: "potential",
+  techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "OpenAI", "Zod", "Vite"],
+  featured: true,
 };
 
-export const shiftPingFeatures: readonly {
+export const potentialCapabilities: readonly {
+  icon: LucideIcon;
   title: string;
   desc: string;
 }[] = [
   {
-    title: "Automated Job Monitoring",
-    desc: "Continuously checks supported warehouse job listings.",
+    icon: FileSearch,
+    title: "Evidence Engine",
+    desc: "Extracts structured evidence from candidate responses.",
   },
   {
-    title: "Smart Job Matching",
-    desc: "Matches jobs using location, shift type, contract type and preferred working hours.",
+    icon: MessagesSquare,
+    title: "Adaptive Follow-up Questions",
+    desc: "Generates targeted questions when interview evidence is incomplete.",
   },
   {
-    title: "Instant Notifications",
-    desc: "Sends alerts when new matching jobs are detected.",
+    icon: FileCheck2,
+    title: "Reflection Check",
+    desc: "Summarises interview evidence and highlights remaining gaps.",
   },
   {
-    title: "Saved Preferences",
-    desc: "Allows users to configure locations, working hours and warehouse preferences.",
+    icon: ClipboardList,
+    title: "Role Planner",
+    desc: "Builds interview plans from job descriptions.",
   },
   {
-    title: "Real-time Monitoring",
-    desc: "Background monitoring with scheduled updates.",
+    icon: ShieldCheck,
+    title: "Responsible AI",
+    desc: "Designed around transparency, fairness and human decision-making.",
   },
   {
-    title: "Future AI Recommendations",
-    desc: "Recommend suitable jobs based on previous applications and user behaviour.",
+    icon: Eye,
+    title: "Explainable Outputs",
+    desc: "Every summary traces back to the evidence it was built from.",
+  },
+  {
+    icon: UserCheck,
+    title: "Human-in-the-loop",
+    desc: "Interviewers stay in control of every hiring decision, always.",
+  },
+  {
+    icon: ListChecks,
+    title: "Structured Evidence",
+    desc: "Replaces gut-feel impressions with organised, comparable evidence.",
   },
 ] as const;
 
-export const shiftPingStack: readonly TechStack[] = [
-  { category: "Frontend", items: ["React", "TypeScript"] },
-  { category: "Backend", items: ["Python", "FastAPI"] },
-  { category: "Database", items: ["PostgreSQL"] },
-  { category: "Automation", items: ["Playwright", "APScheduler"] },
-  { category: "Notifications", items: ["Email", "Telegram"] },
-  { category: "Deployment", items: ["Docker", "GitHub"] },
+export const potentialPrinciples: readonly string[] = [
+  "Evidence over impressions — collect structured evidence, not gut feel.",
+  "Humans decide — Potential never scores, ranks or recommends.",
+  "Transparent by design — every output traces back to observed evidence.",
+  "Adaptive, not scripted — follow-up questions target real gaps in evidence.",
 ];
 
-export const shiftPingTech: readonly string[] = [
-  "Python",
-  "FastAPI",
-  "PostgreSQL",
-  "Playwright",
-  "APScheduler",
-  "Docker",
-  "GitHub",
-  "REST APIs",
+export const potentialResponsibleAI: readonly string[] = [
+  "Supports interviewers — does not replace them",
+  "Evidence-based, not judgment-based",
+  "Transparent about what it has and hasn't observed",
+  "Explainable — every output traces back to evidence",
+  "No automated hiring decisions",
+  "No ranking or scoring of candidates",
 ];
 
-export const shiftPingRoadmap: readonly RoadmapItem[] = [
-  { label: "Research completed", done: true },
-  { label: "Architecture designed", done: true },
-  { label: "MVP planning", done: true },
-  { label: "User authentication", done: false },
-  { label: "Job monitoring engine", done: false },
-  { label: "Notification service", done: false },
-  { label: "Dashboard", done: false },
-  { label: "AI recommendations", done: false },
-  { label: "Production deployment", done: false },
+export const potentialRoadmap: readonly string[] = [
+  "Complete the persistence layer with real candidates, interviews and evidence stored in a database.",
+  "Support multiple interviews per candidate to build a complete evidence history over time.",
+  "Introduce human evidence review and editing while keeping every AI decision transparent and explainable.",
+  "Add workspaces, authentication and collaboration features for hiring teams.",
+  "Build enterprise-ready capabilities such as search, audit trails and role-based access control.",
+  "Continue improving interview quality through better evidence collection — not automated hiring decisions.",
 ];
 
-export const shiftPingGithubUrl = "https://github.com/VDhimar09";
+export const potentialLessons = {
+  paragraphs: [
+    "Building Potential fundamentally changed how I think about AI in hiring.",
+    "I began by exploring how AI could support interviews, but I realised the real opportunity wasn't automating hiring — it was helping interviewers collect better evidence. That insight became the foundation of the product.",
+    "One of the biggest lessons was that strong product principles should guide every technical decision. By defining clear boundaries — such as never scoring candidates or making hiring recommendations — I found it much easier to design AI features that are transparent, explainable and genuinely useful.",
+    "I also learned the importance of balancing product thinking with engineering. Building the AI workflow was only part of the challenge; creating a trustworthy, maintainable and production-ready platform requires equal focus on architecture, persistence, usability and human-centred design.",
+    "Today, every feature is evaluated against one guiding question:",
+  ],
+  quote: "Have we collected enough trustworthy evidence to fairly understand this candidate?",
+  closing:
+    "That question continues to shape the direction of Potential and every product decision I make.",
+} as const;
+
+export const potentialGithubUrl = "https://github.com/VDhimar09/vibhuti-ai-platform";
 
 export const projects: readonly ProjectSummary[] = [
-  operationalHub,
+  potential,
   pharmaChain,
-  shiftPing,
+  operationalHub,
 ] as const;
 
 export const operationalHubFeatures: readonly string[] = [

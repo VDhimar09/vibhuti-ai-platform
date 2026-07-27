@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { Reveal } from "@/components/section";
 import { LuxeChip, Sparkle } from "@/components/decor";
 import { MockDashboard } from "@/components/mock-dashboard";
@@ -6,9 +8,17 @@ import type { ProjectSummary } from "@/types";
 
 /**
  * The featured / flagship project hero — bigger, more editorial than a
- * ProjectCard. Currently used for the Operational AI Hub.
+ * ProjectCard. Reused across whichever project is currently the flagship.
  */
-export function FeaturedProjectHero({ project }: { project: ProjectSummary }) {
+export function FeaturedProjectHero({
+  project,
+  heading,
+  media,
+}: {
+  project: ProjectSummary;
+  heading: ReactNode;
+  media?: ReactNode;
+}) {
   return (
     <Reveal>
       <div className="group relative overflow-hidden rounded-[40px] border border-border bg-gradient-to-br from-rose/8 via-elevated to-blush/12 p-2 shadow-luxe">
@@ -18,8 +28,7 @@ export function FeaturedProjectHero({ project }: { project: ProjectSummary }) {
             <div>
               <LuxeChip tone={project.tone}>{project.chip}</LuxeChip>
               <h2 className="mt-5 font-display text-5xl leading-[1.05] text-ink md:text-6xl">
-                Operational <br />
-                <span className="italic gradient-text">AI Hub</span>
+                {heading}
               </h2>
               <p className="mt-6 text-base leading-relaxed text-mute md:text-lg">
                 {project.description}
@@ -43,7 +52,7 @@ export function FeaturedProjectHero({ project }: { project: ProjectSummary }) {
                 aria-hidden
                 className="absolute -inset-6 -z-10 rounded-[40px] bg-gradient-to-br from-rose/30 via-lavender/20 to-transparent blur-3xl"
               />
-              <MockDashboard variant="dark" label={project.slug} />
+              {media ?? <MockDashboard variant="dark" label={project.slug} />}
             </div>
           </div>
         </div>

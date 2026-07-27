@@ -49,7 +49,7 @@ export interface TechCategory {
 
 export const techStack: readonly TechCategory[] = [
   {
-    category: "AI & Intelligent Systems",
+    category: "AI Engineering",
     tone: "rose",
     items: [
       "OpenAI API",
@@ -62,27 +62,7 @@ export const techStack: readonly TechCategory[] = [
     ],
   },
   {
-    category: "Backend",
-    tone: "sage",
-    items: ["Python", "FastAPI", "REST APIs", "SQLAlchemy", "Alembic", "Pydantic"],
-  },
-  {
-    category: "Frontend",
-    tone: "lavender",
-    items: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
-  },
-  {
-    category: "Database",
-    tone: "rose",
-    items: ["PostgreSQL", "MySQL"],
-  },
-  {
-    category: "Cloud & DevOps",
-    tone: "lavender",
-    items: ["Docker", "Git", "GitHub", "Azure DevOps", "Ubuntu (WSL)"],
-  },
-  {
-    category: "Engineering Practices",
+    category: "Product Engineering",
     tone: "sage",
     items: [
       "Clean Architecture",
@@ -93,6 +73,21 @@ export const techStack: readonly TechCategory[] = [
       "Debugging",
       "Agile Development",
     ],
+  },
+  {
+    category: "Backend",
+    tone: "rose",
+    items: ["Python", "FastAPI", "REST APIs", "SQLAlchemy", "Alembic", "Pydantic", "PostgreSQL", "MySQL"],
+  },
+  {
+    category: "Frontend",
+    tone: "lavender",
+    items: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
+  },
+  {
+    category: "Cloud & DevOps",
+    tone: "lavender",
+    items: ["Docker", "Git", "GitHub", "Azure DevOps", "Ubuntu (WSL)"],
   },
 ];
 

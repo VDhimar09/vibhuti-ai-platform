@@ -54,7 +54,7 @@ function About() {
             <span className="italic gradient-text">A future built on AI.</span>
           </>
         }
-        subtitle="I bridge the gap between operational reality and enterprise-grade AI systems — because I've lived on both sides."
+        subtitle="I build AI-powered products that help people make better decisions. My work combines AI engineering, full-stack development and product thinking to create practical, responsible AI solutions."
       />
 
       <Section className="!pt-0">

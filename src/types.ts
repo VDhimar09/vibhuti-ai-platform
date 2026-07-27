@@ -43,7 +43,7 @@ export interface ProjectMetric {
   bar?: string;
 }
 
-export type ProjectDashboardId = "operational-hub" | "pharmachain" | "shiftping";
+export type ProjectDashboardId = "operational-hub" | "pharmachain" | "potential";
 
 export interface ProjectSummary {
   slug: string;

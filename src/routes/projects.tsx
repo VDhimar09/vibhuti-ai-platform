@@ -1,5 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CheckCircle2, Circle, Github, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Circle,
+  ClipboardList,
+  FileCheck2,
+  FileSearch,
+  Github,
+  MessagesSquare,
+  Quote,
+  Sparkles,
+} from "lucide-react";
 
 import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip } from "@/components/decor";
@@ -15,12 +26,13 @@ import {
   operationalHubStack,
   operationalHubUseCases,
   pharmaChain,
-  shiftPing,
-  shiftPingFeatures,
-  shiftPingGithubUrl,
-  shiftPingRoadmap,
-  shiftPingStack,
-  shiftPingTech,
+  potential,
+  potentialCapabilities,
+  potentialGithubUrl,
+  potentialLessons,
+  potentialPrinciples,
+  potentialResponsibleAI,
+  potentialRoadmap,
 } from "@/content/projects";
 import { TechBadgeList } from "@/components/tech-badge";
 import type { Tone } from "@/types";
@@ -32,19 +44,19 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Flagship enterprise AI platforms — Operational AI Hub, PharmaChain and ShiftPing. Production-quality systems for operations, workflows and decision intelligence.",
+          "Selected AI product work — Potential, PharmaChain and Operational AI Hub. Production-quality systems for decision support, operations and clinical supply chains.",
       },
       { property: "og:title", content: "Projects — Vibhuti Dhimar" },
       {
         property: "og:description",
         content:
-          "Enterprise AI platforms for operational intelligence, clinical supply chains and warehouse operations.",
+          "AI product work spanning responsible hiring evidence, clinical supply chains and enterprise operational intelligence.",
       },
       { property: "og:url", content: "/projects" },
       { name: "twitter:title", content: "Projects — Vibhuti Dhimar" },
       {
         name: "twitter:description",
-        content: "Selected enterprise AI platforms built end-to-end.",
+        content: "Selected AI product work, built end-to-end.",
       },
     ],
     links: [{ rel: "canonical", href: "/projects" }],
@@ -62,15 +74,279 @@ function Projects() {
         eyebrow="Selected work"
         title={
           <>
-            Enterprise AI platforms, <br />
+            AI products, <br />
             <span className="italic gradient-text">built end-to-end</span>.
           </>
         }
-        subtitle="Production-quality systems for operations, workflows and decision intelligence — designed to be trusted by the humans who use them."
+        subtitle="From a responsible hiring platform to enterprise operational intelligence — production-quality systems designed to be trusted by the humans who use them."
       />
 
+      {/* ---------------- Potential (flagship) ---------------- */}
+
       <Section className="!pt-0">
-        <FeaturedProjectHero project={operationalHub} />
+        <FeaturedProjectHero
+          project={potential}
+          heading={
+            <>
+              Meet <br />
+              <span className="italic gradient-text">Potential</span>
+            </>
+          }
+          media={
+            <img
+              src="/images/potential/home.jpg"
+              alt="Potential — workspace home"
+              loading="eager"
+              decoding="async"
+              className="block w-full rounded-[24px] border border-border shadow-soft"
+            />
+          }
+        />
+      </Section>
+
+      <Section
+        eyebrow="Overview"
+        title={<>Evidence, <span className="italic gradient-text">not judgement</span>.</>}
+        className="!pt-0"
+      >
+        <div className="grid gap-5 md:grid-cols-2">
+          <Reveal>
+            <div className="h-full rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
+              <div className="font-display text-xs uppercase tracking-[0.2em] text-rose">The problem</div>
+              <p className="mt-4 text-base leading-relaxed text-mute">
+                Interviews often produce impressions rather than evidence. It's easy for an
+                interviewer to lose track of what they still need to ask, and hard for a panel to
+                compare notes without a consistent, defensible record of what was actually said.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="h-full rounded-3xl border border-sage/30 bg-sage/5 p-7 backdrop-blur">
+              <div className="font-display text-xs uppercase tracking-[0.2em] text-sage">The approach</div>
+              <p className="mt-4 text-base leading-relaxed text-mute">
+                Potential listens for evidence as the interview happens, tracks which competencies
+                are covered, and suggests adaptive follow-up questions when evidence is missing.
+                Afterwards it produces a structured evidence report and reflection check — while
+                the final decision always stays with the interviewer.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+        <Reveal delay={0.14}>
+          <div className="mt-5 rounded-3xl border border-dashed border-border bg-elevated/40 p-7 backdrop-blur">
+            <div className="font-display text-xs uppercase tracking-[0.2em] text-mute">What Potential doesn't do</div>
+            <p className="mt-4 text-base leading-relaxed text-mute">
+              Potential does not make hiring decisions, rank or score candidates, recommend hire or
+              reject, replace interviewers, or give candidates interview answers. It exists to help
+              interviewers collect trustworthy evidence — nothing more.
+            </p>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section
+        eyebrow="Capabilities"
+        title={<>Key <span className="italic gradient-text">capabilities</span>.</>}
+        className="!pt-0"
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {potentialCapabilities.map((f, i) => {
+            const Icon = f.icon;
+            return (
+              <Reveal key={f.title} delay={i * 0.04}>
+                <div className="h-full rounded-3xl border border-border bg-elevated/70 p-6 backdrop-blur transition hover:-translate-y-0.5 hover:border-sage/40 hover:shadow-soft">
+                  <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-sage/15 to-blush/15 text-sage">
+                    <Icon className="h-4.5 w-4.5" strokeWidth={1.7} aria-hidden />
+                  </span>
+                  <div className="mt-4 text-sm font-medium text-ink">{f.title}</div>
+                  <p className="mt-2 text-sm leading-relaxed text-mute">{f.desc}</p>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Architecture"
+        title={<>How it <span className="italic gradient-text">fits together</span>.</>}
+        className="!pt-0"
+      >
+        <Reveal>
+          <div className="rounded-[32px] border border-border bg-gradient-to-br from-elevated to-blush/10 p-8 backdrop-blur md:p-10">
+            <div className="flex flex-wrap items-center gap-3">
+              {[
+                { icon: ClipboardList, label: "Role Planner" },
+                { icon: MessagesSquare, label: "Live Interview" },
+                { icon: FileSearch, label: "Evidence Engine" },
+                { icon: MessagesSquare, label: "Adaptive Follow-ups" },
+                { icon: FileCheck2, label: "Reflection Check" },
+              ].map((step, i, arr) => {
+                const Icon = step.icon;
+                return (
+                  <div key={step.label} className="flex items-center gap-3">
+                    <div className="flex items-center gap-2.5 rounded-2xl border border-border bg-elevated px-4 py-3 shadow-soft">
+                      <Icon className="h-4 w-4 text-sage" strokeWidth={1.7} aria-hidden />
+                      <span className="text-sm font-medium text-ink">{step.label}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <ArrowRight className="h-4 w-4 shrink-0 text-mute/50" aria-hidden />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-mute">
+              A React + TanStack Start frontend drives the interview experience; OpenAI produces
+              structured outputs validated with Zod at every step, so evidence extraction and
+              follow-up questions stay grounded in a defined schema rather than free-form text.
+            </p>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section
+        eyebrow="Product principles"
+        title={<>Principles <span className="italic gradient-text">over features</span>.</>}
+        className="!pt-0"
+      >
+        <ul className="grid gap-3 sm:grid-cols-2" aria-label="Potential product principles">
+          {potentialPrinciples.map((p, i) => (
+            <Reveal key={p} delay={i * 0.05}>
+              <li className="flex items-start gap-3 rounded-2xl border border-border bg-elevated/70 p-5 backdrop-blur">
+                <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-sage" strokeWidth={1.7} aria-hidden />
+                <span className="text-sm leading-relaxed text-ink/90">{p}</span>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
+      <Section
+        eyebrow="Responsible AI"
+        title={<>Designed to <span className="italic gradient-text">support, not replace</span>.</>}
+        className="!pt-0"
+      >
+        <ul className="grid gap-3 sm:grid-cols-2" aria-label="Potential responsible AI principles">
+          {potentialResponsibleAI.map((r, i) => (
+            <Reveal key={r} delay={i * 0.04}>
+              <li className="flex items-center gap-3 rounded-2xl border border-sage/30 bg-sage/5 p-5">
+                <CheckCircle2 className="h-4.5 w-4.5 shrink-0 text-sage" strokeWidth={1.8} aria-hidden />
+                <span className="text-sm font-medium text-ink">{r}</span>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
+      {getWalkthrough(potential.slug) && (
+        <Section
+          eyebrow="Screenshots"
+          title={<>Inside <span className="italic gradient-text">Potential</span>.</>}
+          className="!pt-0"
+        >
+          <ProductWalkthrough data={getWalkthrough(potential.slug)!} />
+        </Section>
+      )}
+
+      <Section
+        eyebrow="Technology"
+        title={<>The <span className="italic gradient-text">stack</span>.</>}
+        className="!pt-0"
+      >
+        <TechBadgeList items={potential.techStack ?? []} ariaLabel="Potential technologies" />
+      </Section>
+
+      <Section
+        eyebrow="Future roadmap"
+        title={<>What's <span className="italic gradient-text">next</span>.</>}
+        className="!pt-0"
+      >
+        <ol className="grid gap-3 md:grid-cols-2">
+          {potentialRoadmap.map((item, i) => (
+            <Reveal key={item} delay={i * 0.04}>
+              <li className="flex items-start gap-3 rounded-2xl border border-border bg-elevated p-5">
+                <Circle className="mt-0.5 h-4 w-4 shrink-0 text-mute/50" strokeWidth={1.6} aria-hidden />
+                <span className="text-sm leading-relaxed text-mute">{item}</span>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+      </Section>
+
+      <Section
+        eyebrow="Lessons learned"
+        title={<>What building it <span className="italic gradient-text">taught me</span>.</>}
+        className="!pt-0"
+      >
+        <Reveal>
+          <div className="space-y-4 rounded-[32px] border border-border bg-gradient-to-br from-elevated to-blush/10 p-8 backdrop-blur md:p-10">
+            {potentialLessons.paragraphs.map((p) => (
+              <p key={p} className="text-base leading-relaxed text-mute">
+                {p}
+              </p>
+            ))}
+            <blockquote className="relative rounded-2xl border border-sage/30 bg-sage/5 p-6 pl-12">
+              <Quote className="absolute left-5 top-6 h-5 w-5 text-sage/60" aria-hidden />
+              <p className="font-display text-lg italic leading-snug text-ink md:text-xl">
+                "{potentialLessons.quote}"
+              </p>
+            </blockquote>
+            <p className="text-base leading-relaxed text-mute">{potentialLessons.closing}</p>
+          </div>
+        </Reveal>
+      </Section>
+
+      <Section className="!pt-0">
+        <Reveal>
+          <a
+            href={potentialGithubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-elevated px-6 py-3.5 text-sm font-medium text-ink shadow-soft transition hover:-translate-y-0.5 hover:border-sage/40 hover:shadow-luxe"
+          >
+            <Github className="h-4 w-4" strokeWidth={1.6} aria-hidden />
+            View on GitHub
+            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden />
+          </a>
+        </Reveal>
+      </Section>
+
+      {/* ---------------- PharmaChain ---------------- */}
+
+      <Section
+        eyebrow={pharmaChain.eyebrow}
+        title={<>Pharma<span className="italic gradient-text">Chain</span> — AI Clinical Supply Chain Copilot.</>}
+      >
+        <ProjectCard project={pharmaChain} dashboardTitle="Enterprise Dashboard" animatedBorder />
+      </Section>
+
+      {getWalkthrough(pharmaChain.slug) && (
+        <Section
+          eyebrow="Product walkthrough"
+          title={<>Inside <span className="italic gradient-text">PharmaChain</span>.</>}
+          className="!pt-0"
+        >
+          <ProductWalkthrough data={getWalkthrough(pharmaChain.slug)!} />
+        </Section>
+      )}
+
+      {/* ---------------- Operational AI Hub ---------------- */}
+
+      <Section
+        eyebrow={operationalHub.eyebrow}
+        title={<>Operational <span className="italic gradient-text">AI Hub</span>.</>}
+        subtitle="AI-powered enterprise operational intelligence — monitor operations, identify risks, coordinate AI-assisted decisions and automate complex operational workflows."
+      >
+        <FeaturedProjectHero
+          project={operationalHub}
+          heading={
+            <>
+              Operational <br />
+              <span className="italic gradient-text">AI Hub</span>
+            </>
+          }
+        />
       </Section>
 
       {getWalkthrough(operationalHub.slug) && (
@@ -179,167 +455,6 @@ function Projects() {
           </ol>
         </div>
       </Section>
-
-      <Section
-        eyebrow={pharmaChain.eyebrow}
-        title={<>Pharma<span className="italic gradient-text">Chain</span> — AI Clinical Supply Chain Copilot.</>}
-      >
-        <ProjectCard project={pharmaChain} dashboardTitle="Enterprise Dashboard" animatedBorder />
-      </Section>
-
-      {getWalkthrough(pharmaChain.slug) && (
-        <Section
-          eyebrow="Product walkthrough"
-          title={<>Inside <span className="italic gradient-text">PharmaChain</span>.</>}
-          className="!pt-0"
-        >
-          <ProductWalkthrough data={getWalkthrough(pharmaChain.slug)!} />
-        </Section>
-      )}
-
-      <Section
-        eyebrow={shiftPing.eyebrow}
-        title={<>Shift<span className="italic gradient-text">Ping</span> — AI-Powered Warehouse Job Monitoring.</>}
-        subtitle="Helping warehouse workers discover new shift opportunities faster — through continuous monitoring, smart matching and instant notifications."
-      >
-        <ProjectCard project={shiftPing} dashboardTitle="Shift Console" />
-      </Section>
-
-      <Section
-        eyebrow="The problem & solution"
-        title={<>Why <span className="italic gradient-text">ShiftPing</span>.</>}
-        className="!pt-0"
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          <Reveal>
-            <div className="h-full rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
-              <div className="font-display text-xs uppercase tracking-[0.2em] text-rose">Problem</div>
-              <p className="mt-4 text-base leading-relaxed text-mute">
-                Warehouse workers often need to manually check multiple websites throughout the day to find available shifts. Jobs are filled quickly, making it difficult to apply before positions disappear.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <div className="h-full rounded-3xl border border-sage/30 bg-sage/5 p-7 backdrop-blur">
-              <div className="font-display text-xs uppercase tracking-[0.2em] text-sage">Solution</div>
-              <p className="mt-4 text-base leading-relaxed text-mute">
-                ShiftPing automates the process by monitoring supported job sites, matching jobs against user preferences and notifying users as soon as relevant opportunities become available.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Capabilities"
-        title={<>Key <span className="italic gradient-text">features</span>.</>}
-        className="!pt-0"
-      >
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="ShiftPing features">
-          {shiftPingFeatures.map((f, i) => (
-            <Reveal key={f.title} delay={i * 0.04}>
-              <li className="h-full rounded-3xl border border-border bg-elevated/70 p-6 backdrop-blur transition hover:-translate-y-0.5 hover:border-sage/40 hover:shadow-soft">
-                <div className="mb-3 flex items-center gap-2">
-                  <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-gradient-to-br from-sage to-lavender" />
-                  <span className="text-sm font-medium text-ink">{f.title}</span>
-                </div>
-                <p className="text-sm leading-relaxed text-mute">{f.desc}</p>
-              </li>
-            </Reveal>
-          ))}
-        </ul>
-      </Section>
-
-      <Section
-        eyebrow="Technology"
-        title={<>The <span className="italic gradient-text">stack</span>.</>}
-        className="!pt-0"
-      >
-        <div className="mb-8">
-          <TechBadgeList items={shiftPingTech} ariaLabel="ShiftPing technologies" />
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {shiftPingStack.map((s, idx) => (
-            <Reveal key={s.category} delay={idx * 0.05}>
-              <div className="h-full rounded-3xl border border-border bg-gradient-to-br from-elevated to-blush/10 p-7 backdrop-blur transition hover:-translate-y-1 hover:shadow-luxe">
-                <div className="font-display text-xs uppercase tracking-[0.2em] text-sage">{s.category}</div>
-                <ul className="mt-4 space-y-2.5">
-                  {s.items.map((i) => (
-                    <li key={i} className="text-sm text-ink/85">
-                      {i}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Status"
-        title={<>Project <span className="italic gradient-text">roadmap</span>.</>}
-        className="!pt-0"
-      >
-        <div className="rounded-[32px] border border-border bg-gradient-to-br from-elevated to-blush/10 p-8 backdrop-blur md:p-10">
-          <ol className="grid gap-3 md:grid-cols-2">
-            {shiftPingRoadmap.map((r) => (
-              <li
-                key={r.label}
-                className={`flex items-center gap-3 rounded-2xl border p-5 transition ${
-                  r.done ? "border-sage/30 bg-sage/5" : "border-border bg-elevated"
-                }`}
-              >
-                {r.done ? (
-                  <CheckCircle2 className="h-5 w-5 text-sage" strokeWidth={1.8} aria-label="Complete" />
-                ) : (
-                  <Circle className="h-5 w-5 text-mute/50" strokeWidth={1.5} aria-label="Not yet started" />
-                )}
-                <span className={`text-sm ${r.done ? "text-ink font-medium" : "text-mute"}`}>
-                  {r.label}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </Section>
-
-      <Section
-        eyebrow="Project preview"
-        title={<>Coming <span className="italic gradient-text">soon</span>.</>}
-        className="!pt-0"
-      >
-        <Reveal>
-          <div className="relative overflow-hidden rounded-[32px] border border-dashed border-sage/40 bg-gradient-to-br from-sage/6 via-elevated to-blush/10 p-10 md:p-16">
-            <div
-              aria-hidden
-              className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[radial-gradient(circle_at_center,color-mix(in_oklab,var(--color-sage)_35%,transparent),transparent_70%)] blur-2xl"
-            />
-            <div className="relative flex flex-col items-center gap-5 text-center">
-              <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-sage/20 to-lavender/20">
-                <Sparkles className="h-6 w-6 text-sage" strokeWidth={1.6} aria-hidden />
-              </span>
-              <h3 className="font-display text-2xl text-ink md:text-3xl">
-                ShiftPing is under active development
-              </h3>
-              <p className="max-w-xl text-base leading-relaxed text-mute">
-                Screenshots and live demonstrations will be available soon. Follow along on GitHub to see progress as new features ship.
-              </p>
-              <a
-                href={shiftPingGithubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-2 inline-flex items-center gap-2 rounded-full border border-border bg-elevated px-6 py-3 text-sm font-medium text-ink shadow-soft transition hover:-translate-y-0.5 hover:border-sage/40 hover:shadow-luxe"
-              >
-                <Github className="h-4 w-4" strokeWidth={1.6} aria-hidden />
-                View on GitHub
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden />
-              </a>
-            </div>
-          </div>
-        </Reveal>
-      </Section>
-
 
       <Section className="!pt-0">
         <Link

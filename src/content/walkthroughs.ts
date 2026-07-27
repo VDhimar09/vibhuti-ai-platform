@@ -106,6 +106,50 @@ export const walkthroughs: readonly ProjectWalkthrough[] = [
       },
     ],
   },
+  {
+    projectSlug: "potential",
+    subtitle: "AI-Assisted Interviewing Platform",
+    description:
+      "An AI-assisted interviewing platform that helps interviewers collect structured, trustworthy evidence about candidate capability — through adaptive follow-up questions and explainable reflection reports.",
+    techStack: ["React", "TypeScript", "TanStack Start", "Tailwind CSS", "OpenAI", "Zod", "Vite"],
+    shots: [
+      {
+        src: "/images/potential/home.jpg",
+        alt: "Potential — Workspace home",
+        title: "Workspace",
+        feature: "An overview of interviews in motion, evidence reports and quick access to ask Potential about missing evidence.",
+        value: "Gives interviewers a single place to pick up where they left off, without losing context.",
+      },
+      {
+        src: "/images/potential/new role.jpg",
+        alt: "Potential — Role Planner",
+        title: "Role Planner",
+        feature: "Paste or upload a job description, choose the competencies that matter, and Potential drafts a structured interview plan.",
+        value: "Turns a job description into a clear, competency-based interview plan in minutes.",
+      },
+      {
+        src: "/images/potential/live interview.jpg",
+        alt: "Potential — Live interview",
+        title: "Live Interview",
+        feature: "Listens for evidence in real time, tracks which competencies are covered, and suggests adaptive follow-up questions when evidence is still missing.",
+        value: "Helps interviewers close evidence gaps in the moment, instead of realising after the interview has ended.",
+      },
+      {
+        src: "/images/potential/evidence report.jpg",
+        alt: "Potential — Evidence report",
+        title: "Evidence Report",
+        feature: "Summarises evidence by competency with supporting quotes and a confidence indicator — and is explicit that it does not recommend hire or reject.",
+        value: "Gives interview panels a shared, evidence-based record to discuss instead of relying on memory and impressions.",
+      },
+      {
+        src: "/images/potential/candidate journey.jpg",
+        alt: "Potential — Candidate journey",
+        title: "Candidate Journey",
+        feature: "A full timeline of the conversation, evidence captured and AI reasoning, in the order it happened — nothing hidden.",
+        value: "Makes every AI-assisted judgement traceable back to what was actually said.",
+      },
+    ],
+  },
 ] as const;
 
 export function getWalkthrough(slug: string): ProjectWalkthrough | undefined {
