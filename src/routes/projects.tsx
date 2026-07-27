@@ -15,7 +15,6 @@ import {
 import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip } from "@/components/decor";
 import { FeaturedProjectHero } from "@/components/featured-project";
-import { ProjectCard } from "@/components/project-card";
 import { ProductWalkthrough } from "@/components/product-walkthrough";
 import { getWalkthrough } from "@/content/walkthroughs";
 import {
@@ -26,6 +25,7 @@ import {
   operationalHubStack,
   operationalHubUseCases,
   pharmaChain,
+  pharmaChainGithubUrl,
   potential,
   potentialCapabilities,
   potentialGithubUrl,
@@ -314,11 +314,58 @@ function Projects() {
 
       {/* ---------------- PharmaChain ---------------- */}
 
+      <Section className="!pt-0">
+        <FeaturedProjectHero
+          project={pharmaChain}
+          heading={
+            <>
+              Pharma<span className="italic gradient-text">Chain</span>
+            </>
+          }
+          media={
+            <img
+              src="/images/pharmachain/Screenshot 2026-07-08 174049.jpg"
+              alt="PharmaChain — dashboard"
+              loading="lazy"
+              decoding="async"
+              className="block w-full rounded-[24px] border border-border shadow-soft"
+            />
+          }
+        />
+      </Section>
+
       <Section
-        eyebrow={pharmaChain.eyebrow}
-        title={<>Pharma<span className="italic gradient-text">Chain</span> — AI Clinical Supply Chain Copilot.</>}
+        eyebrow="Capabilities"
+        title={<>Key <span className="italic gradient-text">features</span>.</>}
+        className="!pt-0"
       >
-        <ProjectCard project={pharmaChain} dashboardTitle="Enterprise Dashboard" animatedBorder />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {pharmaChain.features.map(({ icon: Icon, label }, i) => (
+            <Reveal key={label} delay={i * 0.04}>
+              <div className="flex h-full items-center gap-3 rounded-2xl border border-border bg-elevated/70 p-5 backdrop-blur transition hover:-translate-y-0.5 hover:border-lavender/40 hover:shadow-soft">
+                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-lavender/15 to-blush/15 text-violet">
+                  <Icon className="h-4 w-4" strokeWidth={1.6} aria-hidden />
+                </span>
+                <span className="text-sm font-medium text-ink">{label}</span>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="!pt-0">
+        <Reveal>
+          <a
+            href={pharmaChainGithubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-2 rounded-full border border-border bg-elevated px-6 py-3.5 text-sm font-medium text-ink shadow-soft transition hover:-translate-y-0.5 hover:border-lavender/40 hover:shadow-luxe"
+          >
+            <Github className="h-4 w-4" strokeWidth={1.6} aria-hidden />
+            View on GitHub
+            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden />
+          </a>
+        </Reveal>
       </Section>
 
       {getWalkthrough(pharmaChain.slug) && (

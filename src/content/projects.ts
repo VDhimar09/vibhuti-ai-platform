@@ -47,8 +47,8 @@ export const operationalHub: ProjectSummary = {
 export const pharmaChain: ProjectSummary = {
   slug: "pharmachain",
   name: "PharmaChain",
-  eyebrow: "Project 02",
-  chip: "✦ Enterprise Copilot",
+  eyebrow: "Flagship project",
+  chip: "⭐ Flagship Project",
   tone: "lavender",
   title: "PharmaChain — AI Clinical Supply Chain Copilot",
   description:
@@ -174,6 +174,8 @@ export const potentialLessons = {
 } as const;
 
 export const potentialGithubUrl = "https://github.com/VDhimar09/vibhuti-ai-platform";
+
+export const pharmaChainGithubUrl = "https://github.com/VDhimar09/PharmaChain-AI-Clinical-Supply-Chain-Copilot";
 
 export const projects: readonly ProjectSummary[] = [
   potential,
