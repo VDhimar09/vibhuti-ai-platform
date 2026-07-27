@@ -49,47 +49,38 @@ export interface TechCategory {
 
 export const techStack: readonly TechCategory[] = [
   {
-    category: "AI Engineering",
+    category: "Languages",
     tone: "rose",
-    items: [
-      "OpenAI API",
-      "AI Agents",
-      "Prompt Engineering",
-      "AI Workflow Orchestration",
-      "Rule-Based AI",
-      "Explainable AI",
-      "Intent Classification",
-    ],
-  },
-  {
-    category: "Product Engineering",
-    tone: "sage",
-    items: [
-      "Clean Architecture",
-      "Repository Pattern",
-      "Dependency Injection",
-      "API Design",
-      "Testing",
-      "Debugging",
-      "Agile Development",
-    ],
-  },
-  {
-    category: "Backend",
-    tone: "rose",
-    items: ["Python", "FastAPI", "REST APIs", "SQLAlchemy", "Alembic", "Pydantic", "PostgreSQL", "MySQL"],
+    items: ["Python", "TypeScript", "JavaScript"],
   },
   {
     category: "Frontend",
     tone: "lavender",
-    items: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3"],
+    items: ["React", "Tailwind", "TanStack"],
   },
   {
-    category: "Cloud & DevOps",
+    category: "Backend",
+    tone: "sage",
+    items: ["FastAPI", "Node.js", "PostgreSQL", "SQLAlchemy"],
+  },
+  {
+    category: "AI",
+    tone: "rose",
+    items: ["OpenAI", "Azure OpenAI", "Prompt Engineering", "Responsible AI"],
+  },
+  {
+    category: "Tools",
     tone: "lavender",
-    items: ["Docker", "Git", "GitHub", "Azure DevOps", "Ubuntu (WSL)"],
+    items: ["GitHub", "GitHub Actions", "Docker", "Vercel", "Render"],
   },
 ];
+
+/* ---------- About intro + social proof ---------- */
+
+export const aboutIntro =
+  "With 10+ years in healthcare operations, I made the transition into software engineering and now build AI products. I care about responsible AI, and I genuinely love solving real operational problems. I enjoy building products where technology, design and human decision-making come together.";
+
+export const workedAcross: readonly string[] = ["NHS", "CogniKord AI"];
 
 export const learningStack: readonly TechCategory[] = [
   {

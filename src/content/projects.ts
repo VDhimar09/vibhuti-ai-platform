@@ -177,6 +177,19 @@ export const potentialGithubUrl = "https://github.com/VDhimar09/vibhuti-ai-platf
 
 export const pharmaChainGithubUrl = "https://github.com/VDhimar09/PharmaChain-AI-Clinical-Supply-Chain-Copilot";
 
+export const pharmaChainKeyDecision =
+  "PharmaChain's procurement recommendations come from a rule-based, deterministic reasoning engine rather than an LLM — every decision is traceable and auditable, which matters for regulated pharmaceutical supply chains.";
+
+export const cogniKordRole = "Founding team member";
+
+export const cogniKordFocusAreas: readonly string[] = [
+  "Product discovery",
+  "Research",
+  "AI workflow orchestration",
+  "Customer interviews",
+  "Supply chain",
+];
+
 export const projects: readonly ProjectSummary[] = [
   potential,
   pharmaChain,

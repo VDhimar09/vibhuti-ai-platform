@@ -24,8 +24,11 @@ import {
   operationalHubRoadmap,
   operationalHubStack,
   operationalHubUseCases,
+  cogniKordFocusAreas,
+  cogniKordRole,
   pharmaChain,
   pharmaChainGithubUrl,
+  pharmaChainKeyDecision,
   potential,
   potentialCapabilities,
   potentialGithubUrl,
@@ -114,9 +117,11 @@ function Projects() {
             <div className="h-full rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
               <div className="font-display text-xs uppercase tracking-[0.2em] text-rose">The problem</div>
               <p className="mt-4 text-base leading-relaxed text-mute">
-                Interviews often produce impressions rather than evidence. It's easy for an
-                interviewer to lose track of what they still need to ask, and hard for a panel to
-                compare notes without a consistent, defensible record of what was actually said.
+                Potential started as a personal project — built while going through interviews
+                myself and noticing how much of the process comes down to impressions rather than
+                evidence. It's easy for an interviewer to lose track of what they still need to
+                ask, and hard for a panel to compare notes without a consistent, defensible record
+                of what was actually said.
               </p>
             </div>
           </Reveal>
@@ -353,6 +358,18 @@ function Projects() {
         </div>
       </Section>
 
+      <Section
+        eyebrow="Key AI decisions"
+        title={<>Explainable by <span className="italic gradient-text">design</span>.</>}
+        className="!pt-0"
+      >
+        <Reveal>
+          <div className="rounded-3xl border border-lavender/30 bg-lavender/5 p-7">
+            <p className="text-base leading-relaxed text-mute">{pharmaChainKeyDecision}</p>
+          </div>
+        </Reveal>
+      </Section>
+
       <Section className="!pt-0">
         <Reveal>
           <a
@@ -377,6 +394,27 @@ function Projects() {
           <ProductWalkthrough data={getWalkthrough(pharmaChain.slug)!} />
         </Section>
       )}
+
+      {/* ---------------- CogniKord ---------------- */}
+
+      <Section
+        eyebrow="Founding team member"
+        title={<>Cogni<span className="italic gradient-text">Kord</span> AI.</>}
+        subtitle="I was part of the founding team at CogniKord AI — not the founder — contributing across product discovery and research."
+      >
+        <Reveal>
+          <div className="rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
+            <div className="font-display text-xs uppercase tracking-[0.2em] text-mute">{cogniKordRole}</div>
+            <div className="mt-5 flex flex-wrap gap-2.5">
+              {cogniKordFocusAreas.map((area) => (
+                <LuxeChip key={area} tone="lavender">
+                  {area}
+                </LuxeChip>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+      </Section>
 
       {/* ---------------- Operational AI Hub ---------------- */}
 

@@ -5,10 +5,13 @@ import {
   ArrowRight,
   BarChart3,
   Brain,
+  Building2,
   Cloud,
-  Heart,
-  ShieldCheck,
-  Sparkles,
+  Code2,
+  Lightbulb,
+  Rocket,
+  Server,
+  Stethoscope,
   User,
   Users,
   Workflow,
@@ -81,10 +84,46 @@ const homeStats: readonly Stat[] = [
   { k: "Full Stack", v: "Python · React · FastAPI", sub: "human-centred AI", tone: "rose" },
 ];
 
-const philosophy = [
-  { icon: ShieldCheck, title: "Explainable", desc: "Decisions with reasoning, not black boxes.", tone: "rose" as const },
-  { icon: Users, title: "Human-centred", desc: "Built with the people who will actually use it.", tone: "lavender" as const },
-  { icon: Sparkles, title: "Enterprise-grade", desc: "Resilient, observable, production quality.", tone: "sage" as const },
+const whyMe = [
+  { icon: Building2, title: "Enterprise AI", desc: "Building AI products with production-minded architecture.", tone: "rose" as const },
+  { icon: Lightbulb, title: "Product Thinking", desc: "Turning user problems into practical AI solutions.", tone: "lavender" as const },
+  { icon: Users, title: "Human-Centred AI", desc: "Designing AI that supports people instead of replacing them.", tone: "sage" as const },
+];
+
+type JourneyStop = { icon: LucideIcon; label: string };
+
+const careerJourney: readonly JourneyStop[] = [
+  { icon: Stethoscope, label: "Healthcare Operations" },
+  { icon: Code2, label: "Software Engineering" },
+  { icon: Brain, label: "AI Product Engineering" },
+  { icon: Building2, label: "Enterprise AI Applications" },
+];
+
+const engineeringApproach = [
+  {
+    icon: Code2,
+    title: "Modern Frontend",
+    items: ["React", "TypeScript", "Tailwind", "Performance"],
+    tone: "rose" as const,
+  },
+  {
+    icon: Server,
+    title: "Backend Systems",
+    items: ["FastAPI", "Python", "REST APIs", "PostgreSQL"],
+    tone: "lavender" as const,
+  },
+  {
+    icon: Brain,
+    title: "AI Engineering",
+    items: ["OpenAI APIs", "Prompt Engineering", "Evidence Extraction", "Reasoning"],
+    tone: "sage" as const,
+  },
+  {
+    icon: Rocket,
+    title: "Deployment",
+    items: ["GitHub Actions", "Vercel", "Render", "Docker"],
+    tone: "rose" as const,
+  },
 ];
 
 /* ---------- Component ---------- */
@@ -93,10 +132,12 @@ function Home() {
   return (
     <>
       <HeroSection />
+      <WhyMeSection />
       <CurvedDivider />
       <StatsSection />
+      <CareerJourneySection />
       <FeaturedTeaser />
-      <PhilosophySection />
+      <EngineeringApproachSection />
       <CtaSection />
     </>
   );
@@ -139,35 +180,20 @@ function HeroSection() {
             id="hero-heading"
             className="font-display text-[42px] leading-[1.02] tracking-tight text-ink md:text-[76px] lg:text-[88px]"
           >
-            Building AI Platforms
-            <br />
-            for{" "}
-            <span className="relative inline-block">
-              <span className="italic gradient-text animate-shimmer bg-gradient-to-r from-rose via-blush to-lavender bg-clip-text text-transparent">
-                Intelligent
-              </span>
-              <svg
-                className="absolute -bottom-2 left-0 w-full"
-                viewBox="0 0 200 8"
-                preserveAspectRatio="none"
-                aria-hidden
-              >
-                <path d="M2 5 Q 100 -2 198 5" stroke="url(#u1)" strokeWidth="2" fill="none" strokeLinecap="round" />
-                <defs>
-                  <linearGradient id="u1" x1="0" x2="1">
-                    <stop offset="0" stopColor="#F24C8D" />
-                    <stop offset="1" stopColor="#C084FC" />
-                  </linearGradient>
-                </defs>
-              </svg>
-            </span>
-            <br />
-            Operations.
+            {brand.name}
           </h1>
 
-          <p className="mx-auto mt-10 max-w-2xl text-base leading-relaxed text-mute md:text-lg">
-            I design enterprise AI platforms that transform operational complexity into intelligent
-            decisions, helping organisations become more resilient, efficient and future-ready.
+          <p className="mx-auto mt-6 max-w-3xl font-display text-2xl leading-tight text-ink md:text-4xl">
+            AI Software Engineer building{" "}
+            <span className="italic gradient-text">intelligent products</span> that keep humans in
+            control.
+          </p>
+
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-mute md:text-lg">
+            I'm an AI Software Engineer with a background in healthcare operations, building
+            enterprise AI applications using React, TypeScript, Python and FastAPI. My work focuses
+            on AI systems that augment human decision-making through explainable workflows rather
+            than replacing people.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
@@ -175,20 +201,14 @@ function HeroSection() {
               to="/projects"
               className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-rose to-violet px-6 py-3.5 text-sm font-medium text-white shadow-luxe transition hover:shadow-glow hover:brightness-110"
             >
-              Explore Projects
+              View Projects
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
             </Link>
             <Link
-              to="/about"
+              to="/contact"
               className="inline-flex items-center gap-2 rounded-full border border-border bg-elevated/80 px-6 py-3.5 text-sm font-medium text-ink backdrop-blur transition hover:-translate-y-0.5 hover:border-rose/40 hover:shadow-soft"
             >
-              <User className="h-4 w-4" aria-hidden /> About Me
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3.5 text-sm font-medium text-ink transition hover:-translate-y-0.5 hover:border-lavender/50 hover:bg-lavender/5"
-            >
-              Let's Connect
+              <User className="h-4 w-4" aria-hidden /> Get in Touch
             </Link>
           </div>
         </motion.div>
@@ -312,59 +332,102 @@ function FeaturedTeaser() {
   );
 }
 
-const philosophyTones = {
+const whyMeTones = {
   rose: "from-rose/15 to-blush/10 text-rose",
   lavender: "from-lavender/15 to-blush/10 text-violet",
   sage: "from-sage/15 to-blush/10 text-sage",
 } as const;
 
-function PhilosophySection() {
+function WhyMeSection() {
   return (
-    <section
-      className="relative overflow-hidden py-32 md:py-40"
-      aria-labelledby="philosophy-heading"
+    <Section
+      eyebrow="Why me"
+      title={<>What I <span className="italic gradient-text">bring</span>.</>}
+      className="!pt-0"
     >
-      <div aria-hidden className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_center,color-mix(in_oklab,var(--color-blush)_40%,transparent),transparent_65%)] blur-3xl" />
-      </div>
-      <div className="mx-auto max-w-4xl px-6 text-center">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-elevated/70 px-3.5 py-1 text-[11px] font-medium uppercase tracking-[0.18em] text-mute backdrop-blur">
-          <Heart className="h-3 w-3 text-rose" aria-hidden /> Design Philosophy
-        </div>
-        <Reveal>
-          <p id="philosophy-heading" className="font-display text-3xl leading-[1.2] tracking-tight text-ink md:text-5xl">
-            I believe AI should{" "}
-            <span className="italic gradient-text">augment human decision-making</span>
-            <br className="hidden md:block" /> — not replace it.
-          </p>
-        </Reveal>
-        <Reveal delay={0.15}>
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-mute md:text-lg">
-            Every platform I build combines enterprise software engineering, explainable AI and
-            human-centred design — to create intelligent systems that people trust.
-          </p>
-        </Reveal>
-
-        <div className="mt-16 grid gap-5 md:grid-cols-3">
-          {philosophy.map((c, i) => {
-            const Icon = c.icon;
-            return (
-              <Reveal key={c.title} delay={0.2 + i * 0.08}>
-                <div className="h-full rounded-3xl border border-border bg-elevated/80 p-7 text-left backdrop-blur transition hover:-translate-y-1 hover:shadow-luxe">
-                  <div
-                    className={`inline-grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ${philosophyTones[c.tone]}`}
-                  >
-                    <Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden />
-                  </div>
-                  <div className="mt-5 font-display text-2xl text-ink">{c.title}</div>
-                  <p className="mt-2 text-sm leading-relaxed text-mute">{c.desc}</p>
+      <div className="grid gap-5 md:grid-cols-3">
+        {whyMe.map((c, i) => {
+          const Icon = c.icon;
+          return (
+            <Reveal key={c.title} delay={i * 0.08}>
+              <div className="h-full rounded-3xl border border-border bg-elevated/80 p-7 backdrop-blur transition hover:-translate-y-1 hover:shadow-luxe">
+                <div
+                  className={`inline-grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ${whyMeTones[c.tone]}`}
+                >
+                  <Icon className="h-5 w-5" strokeWidth={1.6} aria-hidden />
                 </div>
-              </Reveal>
-            );
-          })}
-        </div>
+                <div className="mt-5 font-display text-2xl text-ink">{c.title}</div>
+                <p className="mt-2 text-sm leading-relaxed text-mute">{c.desc}</p>
+              </div>
+            </Reveal>
+          );
+        })}
       </div>
-    </section>
+    </Section>
+  );
+}
+
+function CareerJourneySection() {
+  return (
+    <Section
+      eyebrow="Career journey"
+      title={<>From operations <span className="italic gradient-text">to AI engineering</span>.</>}
+    >
+      <div className="flex flex-wrap items-center gap-3">
+        {careerJourney.map((stop, i, arr) => {
+          const Icon = stop.icon;
+          return (
+            <Reveal key={stop.label} delay={i * 0.08}>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2.5 rounded-2xl border border-border bg-elevated px-4 py-3 shadow-soft">
+                  <Icon className="h-4 w-4 text-rose" strokeWidth={1.7} aria-hidden />
+                  <span className="text-sm font-medium text-ink">{stop.label}</span>
+                </div>
+                {i < arr.length - 1 && (
+                  <ArrowRight className="h-4 w-4 shrink-0 text-mute/50" aria-hidden />
+                )}
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </Section>
+  );
+}
+
+function EngineeringApproachSection() {
+  return (
+    <Section
+      eyebrow="Engineering approach"
+      title={<>Engineering <span className="italic gradient-text">approach</span>.</>}
+    >
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {engineeringApproach.map((c, i) => {
+          const Icon = c.icon;
+          return (
+            <Reveal key={c.title} delay={i * 0.06}>
+              <div
+                className={`h-full rounded-3xl border border-border bg-gradient-to-br p-7 backdrop-blur transition hover:-translate-y-1 hover:shadow-luxe ${statToneStyles[c.tone]}`}
+              >
+                <div
+                  className={`inline-grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br ${whyMeTones[c.tone]}`}
+                >
+                  <Icon className="h-4.5 w-4.5" strokeWidth={1.6} aria-hidden />
+                </div>
+                <div className="mt-5 font-display text-lg text-ink">{c.title}</div>
+                <ul className="mt-3 space-y-1.5">
+                  {c.items.map((item) => (
+                    <li key={item} className="text-sm text-mute">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </Section>
   );
 }
 

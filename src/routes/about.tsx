@@ -4,12 +4,14 @@ import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip, Sparkle } from "@/components/decor";
 import { TechBadgeList } from "@/components/tech-badge";
 import {
+  aboutIntro,
   aboutStats,
   aboutTimeline,
   aboutToolkit,
   learningStack,
   learningIntro,
   techStack,
+  workedAcross,
 } from "@/content/about";
 import type { TimelineEntry, Tone } from "@/types";
 
@@ -56,6 +58,27 @@ function About() {
         }
         subtitle="I build AI-powered products that help people make better decisions. My work combines AI engineering, full-stack development and product thinking to create practical, responsible AI solutions."
       />
+
+      <Section className="!pt-0">
+        <Reveal>
+          <p className="max-w-2xl text-base leading-relaxed text-mute md:text-lg">{aboutIntro}</p>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3">
+            <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-mute">
+              Worked across
+            </span>
+            {workedAcross.map((org) => (
+              <span
+                key={org}
+                className="font-display text-lg text-ink/50 transition hover:text-ink/80"
+              >
+                {org}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </Section>
 
       <Section className="!pt-0">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">

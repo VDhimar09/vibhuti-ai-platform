@@ -9,10 +9,10 @@ export const brand: Brand = {
   lastName: "Dhimar",
   role: "AI Software Engineer & Platform Builder",
   tagline:
-    "Designing AI platforms that transform operational complexity into intelligent decisions — for organisations that want to be more resilient, efficient and future-ready.",
+    "Thanks for visiting. I'm always interested in discussing AI engineering, product development and opportunities to build technology that helps people make better decisions.",
   location: "Leicester, United Kingdom",
   quote: "AI that augments, never replaces.",
-  availableFor: "Available for enterprise AI engagements",
+  availableFor: "Available for AI Software Engineering opportunities",
 };
 
 export const navLinks: readonly NavLink[] = [
