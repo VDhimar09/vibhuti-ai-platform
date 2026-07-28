@@ -72,6 +72,29 @@ export interface TechStack {
   items: string[];
 }
 
+/** Shared shape for grouped skill/tech-stack display (About "Skills" section). */
+export interface SkillGroup {
+  category: string;
+  tone: Tone;
+  items: readonly string[];
+}
+
+/** Full project case-study content, rendered on a project's own detail route. */
+export interface ProjectCaseStudy {
+  slug: string;
+  overview: string;
+  problem: string;
+  research: string;
+  systemDesign: string;
+  aiWorkflow: string;
+  myRole: string;
+  keyFeatures: readonly string[];
+  challenges: readonly string[];
+  tradeoffs: readonly string[];
+  lessonsLearned: readonly string[];
+  futureImprovements: readonly string[];
+}
+
 /* ---------- Contact ---------- */
 
 export interface ContactChannel {

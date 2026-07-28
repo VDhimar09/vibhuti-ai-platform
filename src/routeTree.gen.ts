@@ -14,6 +14,9 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectsPotentialRouteImport } from './routes/projects.potential'
+import { Route as ProjectsPharmachainRouteImport } from './routes/projects.pharmachain'
+import { Route as ProjectsOperationalAiHubRouteImport } from './routes/projects.operational-ai-hub'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -40,42 +43,92 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsPotentialRoute = ProjectsPotentialRouteImport.update({
+  id: '/potential',
+  path: '/potential',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsPharmachainRoute = ProjectsPharmachainRouteImport.update({
+  id: '/pharmachain',
+  path: '/pharmachain',
+  getParentRoute: () => ProjectsRoute,
+} as any)
+const ProjectsOperationalAiHubRoute =
+  ProjectsOperationalAiHubRouteImport.update({
+    id: '/operational-ai-hub',
+    path: '/operational-ai-hub',
+    getParentRoute: () => ProjectsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/operational-ai-hub': typeof ProjectsOperationalAiHubRoute
+  '/projects/pharmachain': typeof ProjectsPharmachainRoute
+  '/projects/potential': typeof ProjectsPotentialRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/operational-ai-hub': typeof ProjectsOperationalAiHubRoute
+  '/projects/pharmachain': typeof ProjectsPharmachainRoute
+  '/projects/potential': typeof ProjectsPotentialRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/projects': typeof ProjectsRoute
+  '/projects': typeof ProjectsRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/projects/operational-ai-hub': typeof ProjectsOperationalAiHubRoute
+  '/projects/pharmachain': typeof ProjectsPharmachainRoute
+  '/projects/potential': typeof ProjectsPotentialRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/projects' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/sitemap.xml'
+    | '/projects/operational-ai-hub'
+    | '/projects/pharmachain'
+    | '/projects/potential'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/projects' | '/sitemap.xml'
-  id: '__root__' | '/' | '/about' | '/contact' | '/projects' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/sitemap.xml'
+    | '/projects/operational-ai-hub'
+    | '/projects/pharmachain'
+    | '/projects/potential'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/projects'
+    | '/sitemap.xml'
+    | '/projects/operational-ai-hub'
+    | '/projects/pharmachain'
+    | '/projects/potential'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ProjectsRoute: typeof ProjectsRoute
+  ProjectsRoute: typeof ProjectsRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -116,14 +169,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/potential': {
+      id: '/projects/potential'
+      path: '/potential'
+      fullPath: '/projects/potential'
+      preLoaderRoute: typeof ProjectsPotentialRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/pharmachain': {
+      id: '/projects/pharmachain'
+      path: '/pharmachain'
+      fullPath: '/projects/pharmachain'
+      preLoaderRoute: typeof ProjectsPharmachainRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
+    '/projects/operational-ai-hub': {
+      id: '/projects/operational-ai-hub'
+      path: '/operational-ai-hub'
+      fullPath: '/projects/operational-ai-hub'
+      preLoaderRoute: typeof ProjectsOperationalAiHubRouteImport
+      parentRoute: typeof ProjectsRoute
+    }
   }
 }
+
+interface ProjectsRouteChildren {
+  ProjectsOperationalAiHubRoute: typeof ProjectsOperationalAiHubRoute
+  ProjectsPharmachainRoute: typeof ProjectsPharmachainRoute
+  ProjectsPotentialRoute: typeof ProjectsPotentialRoute
+}
+
+const ProjectsRouteChildren: ProjectsRouteChildren = {
+  ProjectsOperationalAiHubRoute: ProjectsOperationalAiHubRoute,
+  ProjectsPharmachainRoute: ProjectsPharmachainRoute,
+  ProjectsPotentialRoute: ProjectsPotentialRoute,
+}
+
+const ProjectsRouteWithChildren = ProjectsRoute._addFileChildren(
+  ProjectsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ProjectsRoute: ProjectsRoute,
+  ProjectsRoute: ProjectsRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport

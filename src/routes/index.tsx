@@ -3,16 +3,16 @@ import { motion } from "framer-motion";
 import {
   Activity,
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   Brain,
   Building2,
   Cloud,
   Code2,
+  Hammer,
   Lightbulb,
-  Rocket,
-  Server,
+  Linkedin,
   Stethoscope,
-  User,
   Users,
   Workflow,
 } from "lucide-react";
@@ -22,8 +22,10 @@ import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip, OrbitRing, Sparkle, CurvedDivider } from "@/components/decor";
 import { MockDashboard } from "@/components/mock-dashboard";
 import { brand, siteSeo } from "@/content/site";
+import { aboutStats, currentlyBuilding } from "@/content/about";
+import { contact } from "@/content/contact";
 import { potential } from "@/content/projects";
-import type { Stat, Tone } from "@/types";
+import type { Tone } from "@/types";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -77,17 +79,10 @@ const floatingNodes: readonly FloatingNode[] = [
   { label: "Automation", icon: Workflow, x: "50%", y: "4%", delay: 2.4, tone: "lavender" },
 ];
 
-const homeStats: readonly Stat[] = [
-  { k: "10+", v: "Healthcare & Operations", sub: "years experience", tone: "rose" },
-  { k: "Enterprise-ready", v: "AI Systems", sub: "production-minded engineering", tone: "lavender" },
-  { k: "2+", v: "Flagship AI Projects", sub: "shipped end-to-end", tone: "sage" },
-  { k: "Full Stack", v: "Python · React · FastAPI", sub: "human-centred AI", tone: "rose" },
-];
-
 const whyMe = [
-  { icon: Building2, title: "Enterprise AI", desc: "Building AI products with production-minded architecture.", tone: "rose" as const },
-  { icon: Lightbulb, title: "Product Thinking", desc: "Turning user problems into practical AI solutions.", tone: "lavender" as const },
-  { icon: Users, title: "Human-Centred AI", desc: "Designing AI that supports people instead of replacing them.", tone: "sage" as const },
+  { icon: Building2, title: "Full-Stack AI", desc: "Building AI products end-to-end — React front ends, FastAPI backends, AI in between.", tone: "rose" as const },
+  { icon: Lightbulb, title: "Product Thinking", desc: "Turning real operational problems into practical software, not just demos.", tone: "lavender" as const },
+  { icon: Users, title: "Responsible AI", desc: "Designing AI that supports people's decisions instead of making decisions for them.", tone: "sage" as const },
 ];
 
 type JourneyStop = { icon: LucideIcon; label: string };
@@ -96,43 +91,7 @@ const careerJourney: readonly JourneyStop[] = [
   { icon: Stethoscope, label: "Healthcare Operations" },
   { icon: Code2, label: "Software Engineering" },
   { icon: Brain, label: "AI Product Engineering" },
-  { icon: Building2, label: "Enterprise-ready AI Systems" },
-];
-
-const engineeringPractices: readonly string[] = [
-  "Reusable Components",
-  "Type-safe Architecture",
-  "REST API Design",
-  "AI Orchestration",
-  "Explainable AI Workflows",
-  "Responsive UI",
-];
-
-const engineeringApproach = [
-  {
-    icon: Code2,
-    title: "Modern Frontend",
-    items: ["React", "TypeScript", "Tailwind", "Responsive UI"],
-    tone: "rose" as const,
-  },
-  {
-    icon: Server,
-    title: "Backend Systems",
-    items: ["FastAPI", "Python", "REST APIs", "PostgreSQL"],
-    tone: "lavender" as const,
-  },
-  {
-    icon: Brain,
-    title: "AI Engineering",
-    items: ["OpenAI APIs", "Structured Outputs", "Prompt Engineering", "Evidence Extraction"],
-    tone: "sage" as const,
-  },
-  {
-    icon: Rocket,
-    title: "Deployment",
-    items: ["GitHub Actions", "Vercel", "Render", "Docker"],
-    tone: "rose" as const,
-  },
+  { icon: Building2, label: "Full-Stack AI Platforms" },
 ];
 
 /* ---------- Component ---------- */
@@ -146,7 +105,7 @@ function Home() {
       <StatsSection />
       <CareerJourneySection />
       <FeaturedTeaser />
-      <EngineeringApproachSection />
+      <CurrentlyBuildingSection />
       <CtaSection />
     </>
   );
@@ -199,10 +158,12 @@ function HeroSection() {
           </p>
 
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-mute md:text-lg">
-            I'm an AI Software Engineer with a background in healthcare operations, building modern
-            AI applications using React, TypeScript, Python and FastAPI. I enjoy creating AI systems
-            that support better decision-making through explainable workflows rather than replacing
-            people.
+            I'm an AI Software Engineer and full-stack developer with a background in healthcare
+            operations. I build AI products end-to-end — React and TypeScript on the front end,
+            Python and FastAPI underneath — with a product mindset shaped by a decade of solving
+            real operational problems before I wrote code for a living. I care about responsible
+            AI: systems that give people better evidence and explanations, not systems that make
+            the decision for them.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
@@ -213,12 +174,15 @@ function HeroSection() {
               View Projects
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden />
             </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-elevated/80 px-6 py-3.5 text-sm font-medium text-ink backdrop-blur transition hover:-translate-y-0.5 hover:border-rose/40 hover:shadow-soft"
+            <a
+              href={contact.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-elevated/80 px-6 py-3.5 text-sm font-medium text-ink backdrop-blur transition hover:-translate-y-0.5 hover:border-rose/40 hover:shadow-soft"
             >
-              <User className="h-4 w-4" aria-hidden /> Get in Touch
-            </Link>
+              <Linkedin className="h-4 w-4" aria-hidden /> View LinkedIn Profile
+              <ArrowUpRight className="h-3.5 w-3.5 text-mute transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+            </a>
           </div>
         </motion.div>
 
@@ -276,7 +240,7 @@ function StatsSection() {
       title={<>A decade of operations, <span className="italic gradient-text">now in AI</span>.</>}
     >
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {homeStats.map((s, i) => (
+        {aboutStats.map((s, i) => (
           <Reveal key={s.v} delay={i * 0.08}>
             <div
               className={`group relative h-full overflow-hidden rounded-3xl border border-border bg-gradient-to-br ${statToneStyles[s.tone]} p-7 transition hover:-translate-y-1 hover:shadow-luxe`}
@@ -404,45 +368,31 @@ function CareerJourneySection() {
   );
 }
 
-function EngineeringApproachSection() {
+function CurrentlyBuildingSection() {
   return (
     <Section
-      eyebrow="Engineering approach"
-      title={<>Engineering <span className="italic gradient-text">approach</span>.</>}
+      eyebrow="Currently building"
+      title={<>What I'm working on <span className="italic gradient-text">right now</span>.</>}
+      className="!pt-0"
     >
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {engineeringApproach.map((c, i) => {
-          const Icon = c.icon;
-          return (
-            <Reveal key={c.title} delay={i * 0.06}>
-              <div
-                className={`h-full rounded-3xl border border-border bg-gradient-to-br p-7 backdrop-blur transition hover:-translate-y-1 hover:shadow-luxe ${statToneStyles[c.tone]}`}
-              >
-                <div
-                  className={`inline-grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br ${whyMeTones[c.tone]}`}
-                >
-                  <Icon className="h-4.5 w-4.5" strokeWidth={1.6} aria-hidden />
-                </div>
-                <div className="mt-5 font-display text-lg text-ink">{c.title}</div>
-                <ul className="mt-3 space-y-1.5">
-                  {c.items.map((item) => (
-                    <li key={item} className="text-sm text-mute">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          );
-        })}
-      </div>
-      <Reveal delay={0.3}>
-        <div className="mt-8 flex flex-wrap gap-2.5">
-          {engineeringPractices.map((p) => (
-            <LuxeChip key={p} tone="lavender">
-              {p}
-            </LuxeChip>
-          ))}
+      <Reveal>
+        <div className="flex flex-wrap items-center gap-5 rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur md:p-8">
+          <span
+            aria-hidden
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-rose/15 to-lavender/15 text-rose"
+          >
+            <Hammer className="h-4.5 w-4.5" strokeWidth={1.7} />
+          </span>
+          <div className="flex flex-wrap items-center gap-2.5">
+            {currentlyBuilding.items.map((item) => (
+              <LuxeChip key={item} tone="rose">
+                {item}
+              </LuxeChip>
+            ))}
+          </div>
+          <p className="text-sm leading-relaxed text-mute md:ml-1 md:flex-1">
+            {currentlyBuilding.note}
+          </p>
         </div>
       </Reveal>
     </Section>
@@ -458,10 +408,10 @@ function CtaSection() {
           <Sparkle className="absolute right-14 top-16 text-lavender" size={12} delay={1} />
           <Sparkle className="absolute bottom-10 left-1/3 text-blush" size={18} delay={2} />
           <h3 className="mx-auto max-w-2xl font-display text-4xl leading-tight text-ink md:text-5xl">
-            Building an enterprise AI platform?
+            Hiring for an AI or full-stack role?
           </h3>
           <p className="mx-auto mt-5 max-w-xl text-base text-mute md:text-lg">
-            Let's design something that people trust — and that ships.
+            I'd like to hear about it. Let's talk about the problem you're solving.
           </p>
           <Link
             to="/contact"

@@ -8,26 +8,26 @@ import {
   Rocket,
   Stethoscope,
 } from "lucide-react";
-import type { Stat, TimelineEntry } from "@/types";
+import type { SkillGroup, Stat, TimelineEntry } from "@/types";
 
 export const aboutStats: readonly Stat[] = [
-  { k: "10+", v: "Healthcare & Operations", sub: "years experience", tone: "rose" },
-  { k: "Enterprise-ready", v: "AI Systems", sub: "production-minded engineering", tone: "lavender" },
-  { k: "2+", v: "Flagship AI Projects", sub: "shipped end-to-end", tone: "sage" },
-  { k: "Full Stack", v: "Python · React · FastAPI", sub: "human-centred AI", tone: "rose" },
+  { k: "10+", v: "Healthcare & Operations", sub: "years of operational experience", tone: "rose" },
+  { k: "2+", v: "AI Products Built", sub: "designed and shipped end-to-end", tone: "lavender" },
+  { k: "Full Stack", v: "React · Python · FastAPI", sub: "front end to backend to AI", tone: "sage" },
+  { k: "Responsible AI", v: "By Design", sub: "evidence-based, human-in-the-loop", tone: "rose" },
 ];
 
 export const aboutTimeline: readonly TimelineEntry[] = [
   { id: "junior-dev", icon: GraduationCap, title: "Junior Software Developer", desc: "Started with the fundamentals — clean code, testing, disciplined delivery." },
   { id: "nhs-ops", icon: Stethoscope, title: "~10 Years NHS Operations", desc: "Real operational complexity: coordination, resilience, decisions under pressure." },
   { id: "full-stack", icon: Briefcase, title: "Full-Stack Software Engineering", desc: "Modern systems with Python, React and cloud-native tooling." },
-  { id: "ai-startups", icon: Rocket, title: "AI Startups", desc: "Shipping AI-first products end-to-end." },
-  { id: "enterprise-ai", icon: Building2, title: "Enterprise-ready AI Engineering", desc: "Architecting AI systems with production-minded engineering practices." },
+  { id: "ai-startups", icon: Rocket, title: "AI Startup — CogniKord", desc: "Product discovery and research on the founding team of an early-stage AI company." },
+  { id: "enterprise-ai", icon: Building2, title: "AI Product Engineering", desc: "Designing and building AI systems with production-minded engineering practices." },
   { id: "ai-platforms", icon: Brain, title: "Building AI Systems", desc: "Operational intelligence, workflow automation, explainable decision support." },
 ];
 
 export const aboutToolkit: readonly string[] = [
-  "Enterprise-ready AI",
+  "AI Product Engineering",
   "Full Stack",
   "Python",
   "React",
@@ -39,50 +39,56 @@ export const aboutToolkit: readonly string[] = [
   "OpenAI",
 ];
 
-/* ---------- Tech stack ---------- */
+/* ---------- Skills (grouped) ---------- */
 
-export interface TechCategory {
-  category: string;
-  tone: "rose" | "lavender" | "sage";
-  items: readonly string[];
-}
-
-export const techStack: readonly TechCategory[] = [
+export const skills: readonly SkillGroup[] = [
   {
-    category: "Languages",
+    category: "AI",
     tone: "rose",
-    items: ["Python", "TypeScript", "JavaScript"],
+    items: ["OpenAI", "Azure OpenAI", "Prompt Engineering", "Structured Outputs", "AI Agents", "Responsible AI"],
   },
   {
     category: "Frontend",
     tone: "lavender",
-    items: ["React", "Tailwind", "TanStack Router"],
+    items: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "TanStack Router"],
   },
   {
     category: "Backend",
     tone: "sage",
-    items: ["FastAPI", "Node.js", "SQLAlchemy", "PostgreSQL"],
+    items: ["Python", "FastAPI", "Node.js", "SQLAlchemy", "PostgreSQL", "REST APIs"],
   },
   {
-    category: "AI",
+    category: "DevOps",
     tone: "rose",
-    items: ["OpenAI", "Azure OpenAI", "Prompt Engineering", "Structured Outputs"],
-  },
-  {
-    category: "Deployment",
-    tone: "lavender",
-    items: ["GitHub Actions", "Docker", "Vercel", "Render"],
+    items: ["Docker", "GitHub Actions", "Vercel", "Render"],
   },
 ];
+
+/* ---------- Achievements ---------- */
+
+export const achievements: readonly string[] = [
+  "Built multiple full-stack AI applications",
+  "Designed enterprise AI workflows",
+  "Developed AI copilots using OpenAI",
+  "Built production-ready FastAPI APIs",
+  "Implemented authentication and role-based access control",
+];
+
+/* ---------- Currently building ---------- */
+
+export const currentlyBuilding = {
+  items: ["Potential", "PharmaChain"] as readonly string[],
+  note: "Exploring MCP, AI agents and enterprise AI workflows.",
+} as const;
 
 /* ---------- About intro + social proof ---------- */
 
 export const aboutIntro =
-  "With 10+ years in healthcare operations, I made the transition into software engineering and now focus on AI product engineering. I care about responsible AI and human-centred design. I enjoy building software that combines engineering, product thinking and AI to solve real operational problems.";
+  "I spent over a decade in healthcare operations before moving into software engineering. That background shaped how I think about building products: start with the operational problem, then design software — increasingly AI-powered — that actually solves it. I work full-stack, from React interfaces to FastAPI backends to the AI workflows in between, and I'm still learning something new most weeks.";
 
 export const workedAcross: readonly string[] = ["NHS", "CogniKord AI"];
 
-export const learningStack: readonly TechCategory[] = [
+export const learningStack: readonly SkillGroup[] = [
   {
     category: "Modern Web",
     tone: "lavender",

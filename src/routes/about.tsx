@@ -1,16 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { CheckCircle2 } from "lucide-react";
 
 import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip, Sparkle } from "@/components/decor";
 import { TechBadgeList } from "@/components/tech-badge";
 import {
+  achievements,
   aboutIntro,
   aboutStats,
   aboutTimeline,
   aboutToolkit,
   learningStack,
   learningIntro,
-  techStack,
+  skills,
   workedAcross,
 } from "@/content/about";
 import type { TimelineEntry, Tone } from "@/types";
@@ -22,18 +24,18 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "From nearly a decade in NHS operations to building enterprise AI platforms — a journey grounded in real operational complexity.",
+          "Over a decade in NHS operations, now building full-stack AI products. My background, skills and the career journey behind it.",
       },
       { property: "og:title", content: "About — Vibhuti Dhimar" },
       {
         property: "og:description",
-        content: "From NHS operations to enterprise AI platforms — a journey grounded in real operational complexity.",
+        content: "Over a decade in NHS operations, now building full-stack AI products.",
       },
       { property: "og:url", content: "/about" },
       { name: "twitter:title", content: "About — Vibhuti Dhimar" },
       {
         name: "twitter:description",
-        content: "From NHS operations to enterprise AI platforms.",
+        content: "From NHS operations to full-stack AI engineering.",
       },
     ],
     links: [{ rel: "canonical", href: "/about" }],
@@ -95,13 +97,30 @@ function About() {
       </Section>
 
       <Section
-        eyebrow="Tech Stack"
-        title={<>Core <span className="italic gradient-text">technologies</span>.</>}
-        subtitle="The stack I reach for when building enterprise-grade AI products end-to-end."
+        eyebrow="Achievements"
+        title={<>What I've <span className="italic gradient-text">shipped</span>.</>}
         className="!pt-0"
       >
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {techStack.map((group, i) => (
+        <ul className="grid gap-3 sm:grid-cols-2" aria-label="Achievements">
+          {achievements.map((a, i) => (
+            <Reveal key={a} delay={i * 0.05}>
+              <li className="flex items-center gap-3 rounded-2xl border border-sage/30 bg-sage/5 p-5">
+                <CheckCircle2 className="h-4.5 w-4.5 shrink-0 text-sage" strokeWidth={1.8} aria-hidden />
+                <span className="text-sm font-medium text-ink">{a}</span>
+              </li>
+            </Reveal>
+          ))}
+        </ul>
+      </Section>
+
+      <Section
+        eyebrow="Skills"
+        title={<>What I <span className="italic gradient-text">work with</span>.</>}
+        subtitle="The stack I reach for when building AI products end-to-end, grouped by where each piece sits."
+        className="!pt-0"
+      >
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {skills.map((group, i) => (
             <Reveal key={group.category} delay={i * 0.05}>
               <div className="h-full rounded-3xl border border-border bg-gradient-to-br from-elevated to-blush/10 p-7 backdrop-blur transition hover:-translate-y-1 hover:shadow-luxe">
                 <div className="mb-4 flex items-center justify-between">

@@ -52,7 +52,7 @@ export const contactChannels: readonly ContactChannel[] = [
 export const contactCopy = {
   heading: "Let's Connect",
   intro:
-    "I'm always happy to connect with recruiters, engineers, founders, and teams interested in AI, software engineering, and operational intelligence.",
+    "If you're hiring for an AI or full-stack engineering role, or just want to talk about a project, I'd like to hear from you. LinkedIn is fastest for recruiters; email works well for anything longer.",
   formTitle: "Start a conversation",
   formEyebrow: "Send a message",
   successMessage: "Thanks — I'll be in touch soon.",
