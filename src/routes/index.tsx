@@ -80,9 +80,24 @@ const floatingNodes: readonly FloatingNode[] = [
 ];
 
 const whyMe = [
-  { icon: Building2, title: "Full-Stack AI", desc: "Building AI products end-to-end — React front ends, FastAPI backends, AI in between.", tone: "rose" as const },
-  { icon: Lightbulb, title: "Product Thinking", desc: "Turning real operational problems into practical software, not just demos.", tone: "lavender" as const },
-  { icon: Users, title: "Responsible AI", desc: "Designing AI that supports people's decisions instead of making decisions for them.", tone: "sage" as const },
+  {
+    icon: Building2,
+    title: "Full-Stack AI",
+    desc: "Building AI products end-to-end — React front ends, FastAPI backends, AI in between.",
+    tone: "rose" as const,
+  },
+  {
+    icon: Lightbulb,
+    title: "Product Thinking",
+    desc: "Turning real operational problems into practical software, not just demos.",
+    tone: "lavender" as const,
+  },
+  {
+    icon: Users,
+    title: "Responsible AI",
+    desc: "Designing AI that supports people's decisions instead of making decisions for them.",
+    tone: "sage" as const,
+  },
 ];
 
 type JourneyStop = { icon: LucideIcon; label: string };
@@ -121,7 +136,10 @@ const nodeToneStyles: Record<Tone, string> = {
 
 function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-32 md:pt-16 md:pb-40" aria-labelledby="hero-heading">
+    <section
+      className="relative overflow-hidden pt-8 pb-32 md:pt-16 md:pb-40"
+      aria-labelledby="hero-heading"
+    >
       <GradientBlobs variant="hero" />
 
       <Sparkle className="absolute left-[12%] top-40 text-rose" size={18} delay={0} />
@@ -160,10 +178,9 @@ function HeroSection() {
           <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-mute md:text-lg">
             I'm an AI Software Engineer and full-stack developer with a background in healthcare
             operations. I build AI products end-to-end — React and TypeScript on the front end,
-            Python and FastAPI underneath — with a product mindset shaped by a decade of solving
-            real operational problems before I wrote code for a living. I care about responsible
-            AI: systems that give people better evidence and explanations, not systems that make
-            the decision for them.
+            Python and FastAPI underneath — with a strong focus on production engineering,
+            authentication, observability and responsible AI. I design systems that support human
+            judgment, not replace it.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
@@ -181,7 +198,10 @@ function HeroSection() {
               className="group inline-flex items-center gap-2 rounded-full border border-border bg-elevated/80 px-6 py-3.5 text-sm font-medium text-ink backdrop-blur transition hover:-translate-y-0.5 hover:border-rose/40 hover:shadow-soft"
             >
               <Linkedin className="h-4 w-4" aria-hidden /> View LinkedIn Profile
-              <ArrowUpRight className="h-3.5 w-3.5 text-mute transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+              <ArrowUpRight
+                className="h-3.5 w-3.5 text-mute transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden
+              />
             </a>
           </div>
         </motion.div>
@@ -237,7 +257,11 @@ function StatsSection() {
   return (
     <Section
       eyebrow="By the numbers"
-      title={<>A decade of operations, <span className="italic gradient-text">now in AI</span>.</>}
+      title={
+        <>
+          A decade of operations, <span className="italic gradient-text">now in AI</span>.
+        </>
+      }
     >
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {aboutStats.map((s, i) => (
@@ -250,7 +274,9 @@ function StatsSection() {
               </div>
               <div className="font-display text-4xl leading-none text-ink md:text-5xl">{s.k}</div>
               <div className="mt-4 font-display text-lg italic text-ink/80">{s.v}</div>
-              {s.sub && <div className="mt-1 text-xs uppercase tracking-widest text-mute">{s.sub}</div>}
+              {s.sub && (
+                <div className="mt-1 text-xs uppercase tracking-widest text-mute">{s.sub}</div>
+              )}
             </div>
           </Reveal>
         ))}
@@ -263,7 +289,11 @@ function FeaturedTeaser() {
   return (
     <Section
       eyebrow={potential.eyebrow}
-      title={<>Introducing <span className="italic gradient-text">Potential</span>.</>}
+      title={
+        <>
+          Introducing <span className="italic gradient-text">Potential</span>.
+        </>
+      }
       subtitle="Helping organisations make fairer and more confident hiring decisions — through structured evidence collection, adaptive follow-up questions and explainable reflection reports."
     >
       <Reveal>
@@ -315,7 +345,11 @@ function WhyMeSection() {
   return (
     <Section
       eyebrow="Why me"
-      title={<>What I <span className="italic gradient-text">bring</span>.</>}
+      title={
+        <>
+          What I <span className="italic gradient-text">bring</span>.
+        </>
+      }
       className="!pt-0"
     >
       <div className="grid gap-5 md:grid-cols-3">
@@ -344,7 +378,11 @@ function CareerJourneySection() {
   return (
     <Section
       eyebrow="Career journey"
-      title={<>From operations <span className="italic gradient-text">to AI engineering</span>.</>}
+      title={
+        <>
+          From operations <span className="italic gradient-text">to AI engineering</span>.
+        </>
+      }
     >
       <div className="flex flex-wrap items-center gap-3">
         {careerJourney.map((stop, i, arr) => {
@@ -372,7 +410,11 @@ function CurrentlyBuildingSection() {
   return (
     <Section
       eyebrow="Currently building"
-      title={<>What I'm working on <span className="italic gradient-text">right now</span>.</>}
+      title={
+        <>
+          What I'm working on <span className="italic gradient-text">right now</span>.
+        </>
+      }
       className="!pt-0"
     >
       <Reveal>

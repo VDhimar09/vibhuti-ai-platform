@@ -54,7 +54,7 @@ export const pharmaChain: ProjectSummary = {
   tone: "lavender",
   title: "PharmaChain — AI Clinical Supply Chain Copilot",
   description:
-    "An enterprise copilot for clinical supply chains, focused on AI procurement, inventory intelligence, warehouse capacity planning and an executive copilot for supply chain decisions.",
+    "An enterprise AI platform for clinical supply-chain operations — bringing AI-powered procurement, inventory intelligence and warehouse capacity planning into one dashboard with explainable decisions, JWT authentication and role-based access control.",
   features: [
     { icon: ShoppingCart, label: "AI Procurement" },
     { icon: Package, label: "Inventory Intelligence" },
@@ -80,11 +80,11 @@ export const potential: ProjectSummary = {
   eyebrow: "Flagship project",
   chip: "⭐ Flagship Project",
   tone: "sage",
-  title: "Potential — AI-Assisted Interviewing Platform",
+  title: "Potential — Evidence-first AI for fairer hiring",
   description:
-    "Potential is an AI-assisted interviewing platform that helps interviewers collect trustworthy evidence about candidate capability.",
+    "Potential helps interviewers collect better evidence about candidate capability. It doesn't decide who to hire — it helps interviewers ask better questions, identify evidence gaps and keep a defensible record of what was actually discussed.",
   longDescription:
-    "Instead of making hiring decisions, Potential helps interviewers ask better questions, identify missing evidence and build explainable interview summaries — through structured evidence collection, adaptive follow-up questions and reflection reports — while keeping humans in control of every hiring decision.",
+    "Built around the principle that AI should support human judgment, not replace it. Potential uses structured evidence extraction, adaptive follow-up questions and explainable outputs to help interviewers make fairer, more consistent hiring decisions.",
   features: [],
   tags: ["Evidence-based", "Human-in-the-loop", "Explainable"],
   dashboardId: "potential",
@@ -177,14 +177,14 @@ export const potentialLessons = {
     "That question continues to shape the direction of Potential and every product decision I make.",
 } as const;
 
-export const potentialGithubUrl = "https://github.com/VDhimar09/vibhuti-ai-platform";
+export const potentialGithubUrl = "https://github.com/VDhimar09/potential";
 
 export const pharmaChainGithubUrl = "https://github.com/VDhimar09/PharmaChain-AI-Clinical-Supply-Chain-Copilot";
 
 export const pharmaChainKeyDecision =
   "PharmaChain's procurement recommendations come from a rule-based, deterministic reasoning engine rather than an LLM — every decision is traceable and auditable, which matters for regulated pharmaceutical supply chains.";
 
-export const cogniKordRole = "Founding team member";
+export const cogniKordRole = "Founding Product & Research Associate";
 
 export const cogniKordFocusAreas: readonly string[] = [
   "Product discovery",

@@ -21,7 +21,7 @@ export const aboutTimeline: readonly TimelineEntry[] = [
   { id: "junior-dev", icon: GraduationCap, title: "Junior Software Developer", desc: "Started with the fundamentals — clean code, testing, disciplined delivery." },
   { id: "nhs-ops", icon: Stethoscope, title: "~10 Years NHS Operations", desc: "Real operational complexity: coordination, resilience, decisions under pressure." },
   { id: "full-stack", icon: Briefcase, title: "Full-Stack Software Engineering", desc: "Modern systems with Python, React and cloud-native tooling." },
-  { id: "ai-startups", icon: Rocket, title: "AI Startup — CogniKord", desc: "Product discovery and research on the founding team of an early-stage AI company." },
+  { id: "ai-startups", icon: Rocket, title: "AI Startup — CogniKord", desc: "Founding Product & Research Associate — product discovery and research on the founding team of an early-stage AI company." },
   { id: "enterprise-ai", icon: Building2, title: "AI Product Engineering", desc: "Designing and building AI systems with production-minded engineering practices." },
   { id: "ai-platforms", icon: Brain, title: "Building AI Systems", desc: "Operational intelligence, workflow automation, explainable decision support." },
 ];
@@ -43,24 +43,24 @@ export const aboutToolkit: readonly string[] = [
 
 export const skills: readonly SkillGroup[] = [
   {
-    category: "AI",
+    category: "AI Engineering",
     tone: "rose",
-    items: ["OpenAI", "Azure OpenAI", "Prompt Engineering", "Structured Outputs", "AI Agents", "Responsible AI"],
+    items: ["OpenAI APIs", "Structured Outputs", "Prompt Engineering", "RAG", "AI Orchestration", "Evidence Extraction", "Responsible AI"],
   },
   {
     category: "Frontend",
     tone: "lavender",
-    items: ["React", "TypeScript", "JavaScript", "Tailwind CSS", "TanStack Router"],
+    items: ["React", "TypeScript", "TanStack Router", "TanStack Start", "Tailwind CSS", "Vite"],
   },
   {
-    category: "Backend",
+    category: "Backend & APIs",
     tone: "sage",
-    items: ["Python", "FastAPI", "Node.js", "SQLAlchemy", "PostgreSQL", "REST APIs"],
+    items: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "REST APIs", "Authentication"],
   },
   {
-    category: "DevOps",
+    category: "Production",
     tone: "rose",
-    items: ["Docker", "GitHub Actions", "Vercel", "Render"],
+    items: ["Docker", "GitHub Actions", "CI/CD", "Testing", "Logging", "Observability", "RBAC"],
   },
 ];
 

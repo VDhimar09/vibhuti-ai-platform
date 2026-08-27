@@ -101,7 +101,11 @@ function Projects() {
             />
           }
         />
-        <CaseStudyLink to="/projects/pharmachain" role={pharmaChainCaseStudy.myRole} tone="lavender" />
+        <CaseStudyLink
+          to="/projects/pharmachain"
+          role={pharmaChainCaseStudy.myRole}
+          tone="lavender"
+        />
       </Section>
 
       {/* ---------------- Operational AI Hub ---------------- */}
@@ -125,19 +129,29 @@ function Projects() {
             />
           }
         />
-        <CaseStudyLink to="/projects/operational-ai-hub" role={operationalHubCaseStudy.myRole} tone="rose" />
+        <CaseStudyLink
+          to="/projects/operational-ai-hub"
+          role={operationalHubCaseStudy.myRole}
+          tone="rose"
+        />
       </Section>
 
       {/* ---------------- CogniKord (experience, not a project) ---------------- */}
 
       <Section
-        eyebrow="Founding team member"
-        title={<>Cogni<span className="italic gradient-text">Kord</span> AI.</>}
-        subtitle="I was part of the founding team at CogniKord AI — not the founder — contributing across product discovery and research."
+        eyebrow="Founding Product & Research Associate"
+        title={
+          <>
+            Cogni<span className="italic gradient-text">Kord</span> AI.
+          </>
+        }
+        subtitle="I was part of the founding team at CogniKord AI as Founding Product & Research Associate, contributing across product discovery, customer interviews and AI workflow orchestration."
       >
         <Reveal>
           <div className="rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
-            <div className="font-display text-xs uppercase tracking-[0.2em] text-mute">{cogniKordRole}</div>
+            <div className="font-display text-xs uppercase tracking-[0.2em] text-mute">
+              {cogniKordRole}
+            </div>
             <div className="mt-5 flex flex-wrap gap-2.5">
               {cogniKordFocusAreas.map((area) => (
                 <LuxeChip key={area} tone="lavender">
@@ -154,7 +168,8 @@ function Projects() {
           to="/contact"
           className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-rose to-violet px-7 py-3.5 text-sm font-medium text-white shadow-luxe transition hover:brightness-110"
         >
-          Discuss a project <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden />
+          Discuss a project{" "}
+          <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" aria-hidden />
         </Link>
       </Section>
     </div>
