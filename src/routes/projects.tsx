@@ -5,10 +5,6 @@ import { Section, Reveal } from "@/components/section";
 import { GradientBlobs, LuxeChip } from "@/components/decor";
 import { FeaturedProjectHero } from "@/components/featured-project";
 import {
-  cogniKordFocusAreas,
-  cogniKordRole,
-  operationalHub,
-  operationalHubCaseStudy,
   pharmaChain,
   pharmaChainCaseStudy,
   potential,
@@ -22,13 +18,13 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Selected AI product work — Potential, PharmaChain and Operational AI Hub. Full case studies covering problem, architecture, AI workflow and trade-offs.",
+          "Selected AI engineering work — Potential and PharmaChain. Detailed case studies covering architecture, evidence, reliability and trade-offs.",
       },
       { property: "og:title", content: "Projects — Vibhuti Dhimar" },
       {
         property: "og:description",
         content:
-          "AI product work spanning responsible hiring evidence, clinical supply chains and operational intelligence.",
+          "AI engineering work spanning evidence-first hiring and clinical supply-chain copilots.",
       },
       { property: "og:url", content: "/projects" },
       { name: "twitter:title", content: "Projects — Vibhuti Dhimar" },
@@ -54,7 +50,7 @@ function Projects() {
             <span className="italic gradient-text">built end-to-end</span>.
           </>
         }
-        subtitle="Potential is the flagship — a responsible-AI hiring platform I designed and built solo. Below it, PharmaChain and an in-progress operational intelligence platform. Each has a full case study: problem, architecture, AI workflow and trade-offs."
+        subtitle="Two end-to-end AI engineering projects with detailed case studies: evidence-first hiring support and a grounded clinical supply-chain copilot."
       />
 
       {/* ---------------- Potential (flagship) ---------------- */}
@@ -108,60 +104,6 @@ function Projects() {
         />
       </Section>
 
-      {/* ---------------- Operational AI Hub ---------------- */}
-
-      <Section className="!pt-0">
-        <FeaturedProjectHero
-          project={operationalHub}
-          heading={
-            <>
-              Operational <br />
-              <span className="italic gradient-text">AI Hub</span>
-            </>
-          }
-          media={
-            <img
-              src="/images/operational-ai-hub/Screenshot 2026-07-08 192836.jpg"
-              alt="Operational AI Hub — dashboard prototype"
-              loading="lazy"
-              decoding="async"
-              className="block w-full rounded-[24px] border border-border shadow-soft"
-            />
-          }
-        />
-        <CaseStudyLink
-          to="/projects/operational-ai-hub"
-          role={operationalHubCaseStudy.myRole}
-          tone="rose"
-        />
-      </Section>
-
-      {/* ---------------- CogniKord (experience, not a project) ---------------- */}
-
-      <Section
-        eyebrow="Founding Product & Research Associate"
-        title={
-          <>
-            Cogni<span className="italic gradient-text">Kord</span> AI.
-          </>
-        }
-        subtitle="I was part of the founding team at CogniKord AI as Founding Product & Research Associate, contributing across product discovery, customer interviews and AI workflow orchestration."
-      >
-        <Reveal>
-          <div className="rounded-3xl border border-border bg-elevated/70 p-7 backdrop-blur">
-            <div className="font-display text-xs uppercase tracking-[0.2em] text-mute">
-              {cogniKordRole}
-            </div>
-            <div className="mt-5 flex flex-wrap gap-2.5">
-              {cogniKordFocusAreas.map((area) => (
-                <LuxeChip key={area} tone="lavender">
-                  {area}
-                </LuxeChip>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-      </Section>
 
       <Section className="!pt-0">
         <Link
@@ -181,7 +123,7 @@ function CaseStudyLink({
   role,
   tone,
 }: {
-  to: "/projects/potential" | "/projects/pharmachain" | "/projects/operational-ai-hub";
+  to: "/projects/potential" | "/projects/pharmachain";
   role: string;
   tone: "rose" | "lavender" | "sage";
 }) {

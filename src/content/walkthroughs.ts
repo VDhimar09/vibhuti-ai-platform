@@ -19,43 +19,6 @@ export interface ProjectWalkthrough {
 
 export const walkthroughs: readonly ProjectWalkthrough[] = [
   {
-    projectSlug: "operational-ai-hub",
-    subtitle: "AI-Powered Operational Intelligence Platform",
-    description:
-      "An enterprise AI platform designed to monitor operational events, coordinate specialised AI agents, automate workflows and provide explainable decision support for complex organisations.",
-    techStack: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "OpenAI", "Docker", "Azure"],
-    shots: [
-      {
-        src: "/images/operational-ai-hub/Screenshot 2026-07-08 192836.jpg",
-        alt: "Operational AI Hub — Dashboard",
-        title: "Dashboard",
-        feature: "Real-time operational overview with AI-generated recommendations and executive KPIs.",
-        value: "Gives leadership a single glass-pane view of organisational health and priority actions.",
-      },
-      {
-        src: "/images/operational-ai-hub/Screenshot 2026-07-08 192931.jpg",
-        alt: "Operational AI Hub — AI Agents",
-        title: "AI Agents",
-        feature: "Multiple specialised AI agents collaborate across operations, risk assessment, recovery planning and communications.",
-        value: "Extends operational capacity without adding headcount, coordinating decisions 24/7.",
-      },
-      {
-        src: "/images/operational-ai-hub/Screenshot 2026-07-08 193001.jpg",
-        alt: "Operational AI Hub — Analytics",
-        title: "Analytics",
-        feature: "Executive dashboards measuring operational performance, AI effectiveness and organisational health.",
-        value: "Turns operational telemetry into board-ready insight and accountability.",
-      },
-      {
-        src: "/images/operational-ai-hub/Screenshot 2026-07-08 193017.jpg",
-        alt: "Operational AI Hub — Knowledge Hub",
-        title: "Knowledge Hub",
-        feature: "Searchable operational knowledge base containing policies, playbooks and AI-ready documentation.",
-        value: "Grounds every AI decision in trusted institutional knowledge — no hallucinations, full traceability.",
-      },
-    ],
-  },
-  {
     projectSlug: "pharmachain",
     subtitle: "AI Clinical Supply Chain Copilot",
     description:

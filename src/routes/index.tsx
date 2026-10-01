@@ -24,7 +24,7 @@ import { MockDashboard } from "@/components/mock-dashboard";
 import { brand, siteSeo } from "@/content/site";
 import { aboutStats, currentlyBuilding } from "@/content/about";
 import { contact } from "@/content/contact";
-import { potential } from "@/content/projects";
+import { pharmaChain, potential } from "@/content/projects";
 import type { Tone } from "@/types";
 
 export const Route = createFileRoute("/")({
@@ -120,6 +120,7 @@ function Home() {
       <StatsSection />
       <CareerJourneySection />
       <FeaturedTeaser />
+      <HowIBuildSection />
       <CurrentlyBuildingSection />
       <CtaSection />
     </>
@@ -215,7 +216,7 @@ function HeroSection() {
           <OrbitRing className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 text-rose/25 md:h-[620px] md:w-[620px] animate-drift" />
 
           <div className="absolute left-1/2 top-1/2 h-auto w-[300px] -translate-x-1/2 -translate-y-1/2 md:w-[380px]">
-            <MockDashboard />
+            <MockDashboard label={pharmaChain.name} />
           </div>
 
           {floatingNodes.map((n, i) => {
@@ -402,6 +403,51 @@ function CareerJourneySection() {
           );
         })}
       </div>
+    </Section>
+  );
+}
+
+function HowIBuildSection() {
+  const steps = [
+    "Problem framing",
+    "Architecture",
+    "Cursor + Claude Code",
+    "Testing & evaluation",
+    "Security & access controls",
+    "Observability",
+    "Deployment",
+  ];
+  return (
+    <Section
+      eyebrow="How I build"
+      title={
+        <>
+          Disciplined engineering, <span className="italic gradient-text">AI-assisted</span>.
+        </>
+      }
+      className="!pt-0"
+    >
+      <Reveal>
+        <div className="rounded-[32px] border border-border bg-gradient-to-br from-elevated to-blush/10 p-7 backdrop-blur md:p-9">
+          <div className="flex flex-wrap items-center gap-2.5">
+            {steps.map((step, index) => (
+              <div key={step} className="flex items-center gap-2.5">
+                <span className="rounded-full border border-border bg-elevated px-3 py-2 text-xs font-medium text-ink">
+                  {step}
+                </span>
+                {index < steps.length - 1 && (
+                  <ArrowRight className="h-3.5 w-3.5 text-mute/50" aria-hidden />
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 max-w-3xl text-sm leading-relaxed text-mute">
+            I use Cursor and Claude Code to support implementation and exploration. I select
+            testing, evaluation, security, observability and deployment checks based on each
+            project; architecture, review and validation remain my responsibility.
+          </p>
+        </div>
+      </Reveal>
     </Section>
   );
 }

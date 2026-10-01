@@ -8,7 +8,6 @@ Personal portfolio site for Vibhuti Dhimar, an AI Product Engineer building AI-p
 
 - **[Potential](https://vibhuti-ai-platform.vercel.app/projects)** — An AI-assisted interviewing platform that helps interviewers collect trustworthy evidence about candidate capability through structured evidence collection, adaptive follow-up questions and explainable reflection reports, while keeping humans in control of every hiring decision.
 - **PharmaChain** — An enterprise copilot for clinical supply chains, covering AI procurement, inventory intelligence, warehouse capacity planning and an executive copilot for supply chain decisions.
-- **Operational AI Hub** — An AI-powered enterprise operational intelligence platform for monitoring operations, identifying risks, coordinating AI-assisted decisions and automating operational workflows.
 
 ## Tech stack
 

@@ -6,7 +6,7 @@ import { Sparkles } from "lucide-react";
  */
 export function MockDashboard({
   variant = "dark",
-  label = "operational-ai-hub",
+  label = "pharmachain",
 }: {
   variant?: "dark" | "light";
   label?: string;
@@ -32,9 +32,9 @@ export function MockDashboard({
       </div>
       <div className="grid grid-cols-3 gap-2.5 p-4">
         {[
-          { l: "Ops Health", v: "94%", c: "text-sage" },
-          { l: "Active Flows", v: "128", c: "text-lavender" },
-          { l: "Risks", v: "3", c: "text-rose" },
+          { l: "Grounded answers", v: "RAG", c: "text-sage" },
+          { l: "Tool traces", v: "Visible", c: "text-lavender" },
+          { l: "Citation checks", v: "Server", c: "text-rose" },
         ].map((k) => (
           <div
             key={k.l}
@@ -49,7 +49,7 @@ export function MockDashboard({
       </div>
       <div className={`mx-4 rounded-xl border p-4 ${isDark ? "border-white/10 bg-white/[0.04]" : "border-border bg-surface/70"}`}>
         <div className={`mb-3 text-[9px] uppercase tracking-widest ${isDark ? "text-white/50" : "text-mute"}`}>
-          Weekly signals
+          Copilot request flow
         </div>
         <div className="flex h-16 items-end gap-1.5">
           {[40, 55, 30, 70, 45, 80, 60, 90, 55, 75, 65, 85].map((h, i) => (
@@ -68,7 +68,7 @@ export function MockDashboard({
       >
         <Sparkles className="h-3.5 w-3.5 text-rose" aria-hidden />
         <span className={`text-[10px] ${isDark ? "text-white/80" : "text-ink/80"}`}>
-          AI: shift capacity 12% to route B for 8% throughput gain
+          Intent → planner → registered tools → validated evidence
         </span>
       </div>
     </div>
